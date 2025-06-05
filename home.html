@@ -1,24 +1,32 @@
 <!DOCTYPE html>
+<!-- Trang chủ của nhóm Ngũ Vị Hương - Hiển thị thông tin và CV của các thành viên -->
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngũ Vị Hương - Team Portfolio</title>
+    <!-- Font Awesome cho các biểu tượng -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- File CSS chính -->
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
+    <!-- Nút chuyển đổi chế độ sáng/tối -->
     <button class="dark-mode-toggle" title="Chuyển đổi chế độ sáng/tối">
         <i class="fas fa-moon"></i>
     </button>
 
+    <!-- Container chính chứa toàn bộ nội dung -->
     <div class="team-container">
+        <!-- Phần header với tên nhóm -->
         <div class="team-header">
             <h1>Ngũ Vị Hương</h1>
             <p class="team-description">Nhóm 5 thành viên</p>
         </div>
 
+        <!-- Grid hiển thị thông tin các thành viên -->
         <div class="members-grid">
+            <!-- Thẻ thông tin thành viên 1 - Trưởng nhóm -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="/imgs/nhu.png" alt="Thành viên 1">
@@ -28,6 +36,7 @@
                 </div>
                 <h3>Bùi Đặng Quỳnh Như</h3>
                 <p>Trưởng nhóm</p>
+                <!-- Liên kết mạng xã hội của thành viên -->
                 <div class="member-social">
                     <a href="https://github.com/nhunhu2310" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.facebook.com/bdqnnnn.2310/" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -35,6 +44,7 @@
                 </div>
             </div>
 
+            <!-- Thẻ thông tin thành viên 2 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member2.jpg" alt="Thành viên 2">
@@ -51,6 +61,7 @@
                 </div>
             </div>
 
+            <!-- Thẻ thông tin thành viên 3 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member3.jpg" alt="Thành viên 3">
@@ -67,6 +78,7 @@
                 </div>
             </div>
 
+            <!-- Thẻ thông tin thành viên 4 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member4.jpg" alt="Thành viên 4">
@@ -83,6 +95,7 @@
                 </div>
             </div>
 
+            <!-- Thẻ thông tin thành viên 5 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member5.jpg" alt="Thành viên 5">
@@ -100,17 +113,19 @@
             </div>
         </div>
 
+        <!-- Footer chứa thông tin về nhóm và liên kết -->
         <div class="team-footer">
             <div class="team-info">
                 <h2>Về chúng tôi</h2>
                 <p>Nhóm Ngũ Vị Hương - Trường Đại học Giao thông vận tải TP.HCM</p>
             </div>
             <div class="team-social">
-                <a href="https://github.com/nhunhu2310/CV" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/LTWEB-NGU-VI-HUONG/CV.git" class="social-icon"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </div>
 
+    <!-- Script JavaScript cho các tính năng tương tác -->
     <script src="home.js"></script>
 </body>
 </html> 

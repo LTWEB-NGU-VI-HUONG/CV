@@ -1,4 +1,4 @@
-/* Reset và base styles */
+/* ===== RESET VÀ THIẾT LẬP CƠ BẢN ===== */
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +12,15 @@ body {
     line-height: 1.6;
 }
 
-/* Container styles */
+/* ===== CONTAINER CHÍNH ===== */
 .team-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Header styles */
+/* ===== PHẦN HEADER ===== */
+/* Header với hiệu ứng gradient động */
 .team-header {
     text-align: center;
     margin-bottom: 60px;
@@ -42,7 +43,8 @@ body {
     opacity: 0.9;
 }
 
-/* Members grid */
+/* ===== GRID THÀNH VIÊN ===== */
+/* Grid 5 cột cho các thẻ thành viên */
 .members-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -52,7 +54,8 @@ body {
     padding-bottom: 10px;
 }
 
-/* Member card styles */
+/* ===== THẺ THÀNH VIÊN ===== */
+/* Thiết kế thẻ thông tin từng thành viên */
 .member-card {
     min-width: 200px;
     background: white;
@@ -62,15 +65,17 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hiệu ứng hover cho thẻ thành viên */
 .member-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
+/* Container ảnh đại diện */
 .member-image {
     position: relative;
     width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+    padding-top: 100%; /* Tỷ lệ khung hình 1:1 */
     overflow: hidden;
 }
 
@@ -87,6 +92,7 @@ body {
     transform: none;
 }
 
+/* Lớp phủ khi hover vào ảnh */
 .member-overlay {
     position: absolute;
     top: 0;
@@ -105,7 +111,8 @@ body {
     opacity: 1;
 }
 
-/* Button ripple effect */
+/* ===== NÚT XEM CV ===== */
+/* Thiết kế nút với hiệu ứng ripple */
 .view-cv-btn {
     position: relative;
     overflow: hidden;
@@ -119,6 +126,7 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Hiệu ứng ripple khi click */
 .ripple {
     position: absolute;
     background: rgba(255, 255, 255, 0.3);
@@ -131,6 +139,7 @@ body {
     opacity: 0;
 }
 
+/* Animation cho hiệu ứng ripple */
 @keyframes ripple {
     from {
         transform: scale(0);
@@ -146,6 +155,7 @@ body {
     transform: translateY(0);
 }
 
+/* Thông tin thành viên */
 .member-card h3 {
     padding: 20px 20px 10px;
     font-size: 1.2em;
@@ -158,7 +168,7 @@ body {
     font-size: 0.9em;
 }
 
-/* Member social links */
+/* ===== LIÊN KẾT MẠNG XÃ HỘI ===== */
 .member-social {
     padding: 15px 20px 20px;
     display: flex;
@@ -176,7 +186,7 @@ body {
     color: #a363d9;
 }
 
-/* Footer styles */
+/* ===== FOOTER ===== */
 .team-footer {
     background: white;
     padding: 40px;
@@ -214,7 +224,8 @@ body {
     color: #a363d9;
 }
 
-/* Animation keyframes */
+/* ===== ANIMATIONS ===== */
+/* Hiệu ứng gradient động cho header */
 @keyframes gradientBG {
     0% {
         background-position: 0% 50%;
@@ -227,7 +238,8 @@ body {
     }
 }
 
-/* Responsive styles */
+/* ===== RESPONSIVE DESIGN ===== */
+/* Màn hình <= 1200px */
 @media (max-width: 1200px) {
     .members-grid {
         grid-template-columns: repeat(5, 200px);
@@ -235,6 +247,7 @@ body {
     }
 }
 
+/* Màn hình <= 768px */
 @media (max-width: 768px) {
     .team-container {
         padding: 20px;
@@ -269,7 +282,7 @@ body {
     }
 }
 
-/* Scrollbar styling */
+/* ===== THANH CUỘN TÙY CHỈNH ===== */
 .members-grid::-webkit-scrollbar {
     height: 8px;
 }
@@ -288,106 +301,107 @@ body {
     background: #a363d9;
 }
 
-/* Dark mode styles */
+/* ===== CHẾ ĐỘ TỐI ===== */
+/* Màu nền và chữ cho chế độ tối */
 .dark-mode {
-    background: #1a1b2e;
-    color: #e4e4e4;
+    background: #1a1a2e;
+    color: #fff;
 }
 
+/* Header trong chế độ tối */
 .dark-mode .team-header {
-    background: linear-gradient(-45deg, #4a148c, #7b1fa2, #6a1b9a, #4a148c);
+    background: linear-gradient(-45deg, #4a47a3, #7c4dff, #6c5ce7, #4834d4);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
 
+/* Thẻ thành viên trong chế độ tối */
 .dark-mode .member-card {
-    background: #242640;
+    background: #2d2d44;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .dark-mode .member-card h3 {
-    color: #e4e4e4;
+    color: #fff;
 }
 
 .dark-mode .member-card p {
-    color: #b4b4b4;
+    color: #ddd;
 }
 
 .dark-mode .view-cv-btn {
-    background: #6c5ce7;
-    color: white;
+    background: #4a47a3;
+    color: #fff;
 }
 
 .dark-mode .member-social a {
-    color: #a363d9;
+    color: #7c4dff;
 }
 
 .dark-mode .member-social a:hover {
-    color: #6c5ce7;
+    color: #a363d9;
 }
 
 .dark-mode .team-footer {
-    background: #242640;
+    background: #2d2d44;
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .dark-mode .team-info h2 {
-    color: #a363d9;
+    color: #7c4dff;
 }
 
 .dark-mode .social-icon {
-    color: #a363d9;
+    color: #7c4dff;
 }
 
 .dark-mode .social-icon:hover {
-    color: #6c5ce7;
+    color: #a363d9;
 }
 
-/* Dark mode toggle button */
+/* ===== NÚT CHUYỂN ĐỔI CHẾ ĐỘ SÁNG/TỐI ===== */
 .dark-mode-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: white;
-    border: none;
-    color: #6c5ce7;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1000;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
 
 .dark-mode-toggle:hover {
+    background: #4834d4;
     transform: scale(1.1);
-    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
 }
 
+/* Nút trong chế độ tối */
 .dark-mode .dark-mode-toggle {
-    background: #242640;
-    color: #a363d9;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: #7c4dff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .dark-mode .dark-mode-toggle:hover {
-    box-shadow: 0 2px 15px rgba(0,0,0,0.4);
+    background: #6c5ce7;
 }
 
-/* Dark mode scrollbar */
+/* Thanh cuộn trong chế độ tối */
 .dark-mode .members-grid::-webkit-scrollbar-track {
-    background: #242640;
+    background: #2d2d44;
 }
 
 .dark-mode .members-grid::-webkit-scrollbar-thumb {
-    background: #a363d9;
+    background: #7c4dff;
 }
 
 .dark-mode .members-grid::-webkit-scrollbar-thumb:hover {
-    background: #6c5ce7;
+    background: #a363d9;
 } 

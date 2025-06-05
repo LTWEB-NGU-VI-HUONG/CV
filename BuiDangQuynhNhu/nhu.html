@@ -1,17 +1,26 @@
+<!-- Khai báo loại tài liệu HTML5 -->
 <!DOCTYPE html>
+<!-- Thiết lập ngôn ngữ trang web là tiếng Việt -->
 <html lang="vi">
 <head>
+  <!-- Thiết lập mã hóa ký tự UTF-8 để hỗ trợ tiếng Việt -->
   <meta charset="UTF-8">
+  <!-- Thiết lập viewport cho thiết bị di động -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tiêu đề trang web -->
   <title>CV - Bùi Đặng Quỳnh Như</title>
+  <!-- Liên kết đến thư viện Font Awesome cho các biểu tượng -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Liên kết đến file CSS tùy chỉnh -->
   <link rel="stylesheet" href="nhu.css">
 </head>
 <body>
+  <!-- Nút chuyển đổi chế độ tối/sáng -->
   <button id="darkModeToggle" class="dark-mode-toggle">
     <i class="fas fa-moon"></i>
   </button>
 
+  <!-- Phần banner chứa ảnh đại diện và thông tin cơ bản -->
   <div class="banner">
     <div class="profile-container">
       <div class="profile-avatar">
@@ -22,6 +31,7 @@
     </div>
   </div>
 
+  <!-- Thanh điều hướng -->
   <nav class="navbar">
     <div class="nav-container">
       <a href="/home.html" class="nav-link home-link">
@@ -47,7 +57,9 @@
     </div>
   </nav>
 
+  <!-- Nội dung chính của trang -->
   <div class="main-content">
+    <!-- Phần thông tin cá nhân và liên hệ -->
     <div class="info-and-contact">
       <section id="about" class="section">
         <h2><i class="fas fa-user"></i>Thông tin cá nhân</h2>
@@ -82,6 +94,7 @@
       </section>
     </div>
 
+    <!-- Phần mục tiêu nghề nghiệp -->
     <section class="section">
       <h2><i class="fas fa-bullseye"></i>Mục tiêu nghề nghiệp</h2>
       <p>
@@ -109,6 +122,7 @@
       </ul>
     </section>
 
+    <!-- Phần học vấn -->
     <section class="section">
       <h2><i class="fas fa-graduation-cap"></i>Học vấn</h2>
       <div class="experience-item">
@@ -120,6 +134,7 @@
       </div>
     </section>
 
+    <!-- Phần kỹ năng và công cụ -->
     <div class="skills-and-tools">
       <section id="skills" class="section">
         <h2><i class="fas fa-tools"></i>Kỹ năng chuyên môn</h2>
@@ -151,6 +166,7 @@
       </section>
     </div>
 
+    <!-- Phần dự án và hoạt động -->
     <section id="projects" class="section">
       <h2><i class="fas fa-star"></i>Dự án & Hoạt động</h2>
       <div class="activities">
@@ -165,6 +181,7 @@
       </div>
     </section>
 
+    <!-- Phần sở thích -->
     <section class="section">
       <h2><i class="fas fa-heart"></i>Sở thích</h2>
       <div class="interests">
@@ -184,6 +201,7 @@
     </section>
   </div>
 
+  <!-- Liên kết đến file JavaScript -->
   <script src="nhu.js"></script>
 </body>
 </html>

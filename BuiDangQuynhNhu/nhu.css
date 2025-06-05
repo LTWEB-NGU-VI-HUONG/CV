@@ -1,4 +1,4 @@
-/* Reset and base */
+/* Reset và thiết lập cơ bản */
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +6,14 @@
   font-family: 'Arial', sans-serif;
 }
 
+/* Thiết lập màu nền và màu chữ cho toàn trang */
 body {
   background: #f8f3ff;
   color: #333;
   line-height: 1.6;
 }
 
-/* Animated gradient backgrounds */
+/* Hiệu ứng gradient động cho nền */
 @keyframes gradientBG {
   0% {
     background-position: 0% 50%;
@@ -25,7 +26,7 @@ body {
   }
 }
 
-/* Banner styles */
+/* Phần banner */
 .banner {
   background: linear-gradient(-45deg, #6c5ce7, #a363d9, #7c4dff, #5e35b1);
   background-size: 400% 400%;
@@ -36,6 +37,7 @@ body {
   overflow: hidden;
 }
 
+/* Lớp phủ mờ cho banner */
 .banner::before {
   content: '';
   position: absolute;
@@ -47,6 +49,7 @@ body {
   opacity: 0.1;
 }
 
+/* Container cho phần thông tin cá nhân */
 .profile-container {
   max-width: 800px;
   margin: 0 auto;
@@ -55,6 +58,7 @@ body {
   z-index: 1;
 }
 
+/* Khung ảnh đại diện */
 .profile-avatar {
   width: 300px;
   height: 300px;
@@ -66,31 +70,35 @@ body {
   background: #fff;
 }
 
+/* Ảnh đại diện */
 .profile-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+/* Tiêu đề chính */
 h1 {
   font-size: 2.5em;
   margin-bottom: 10px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 
+/* Chức danh nghề nghiệp */
 .job-title {
   font-size: 1.2em;
   margin-bottom: 20px;
   opacity: 0.9;
 }
 
-/* Main content */
+/* Phần nội dung chính */
 .main-content {
   max-width: 1200px;
   margin: 30px auto;
   padding: 20px;
 }
 
+/* Cột trái và phải */
 .left-column, .right-column {
   background: white;
   border-radius: 10px;
@@ -99,18 +107,21 @@ h1 {
   margin-bottom: 30px;
 }
 
+/* Các phần trong nội dung */
 .section {
   margin-bottom: 40px;
   padding-bottom: 30px;
   border-bottom: 1px dashed #e0e0e0;
 }
 
+/* Bỏ đường kẻ cho phần cuối cùng */
 .section:last-child {
   margin-bottom: 0;
   padding-bottom: 0;
   border-bottom: none;
 }
 
+/* Tiêu đề các phần */
 .section h2 {
   color: #6c5ce7;
   margin-bottom: 15px;
@@ -122,16 +133,19 @@ h1 {
   font-size: 1.2em;
 }
 
+/* Biểu tượng trong tiêu đề */
 .section h2 i {
   color: #a363d9;
   width: 24px;
 }
 
+/* Danh sách thông tin cá nhân */
 .info-list {
   list-style: none;
   padding: 0;
 }
 
+/* Các mục trong danh sách thông tin */
 .info-list li {
   display: flex;
   align-items: center;
@@ -139,32 +153,38 @@ h1 {
   padding-left: 0;
 }
 
+/* Biểu tượng trong danh sách thông tin */
 .info-list li i {
   width: 20px;
   color: #6c5ce7;
   margin-right: 10px;
 }
 
+/* Loại bỏ dấu chấm mặc định của danh sách */
 .info-list li::before {
   display: none;
 }
 
+/* Định dạng cho mục kinh nghiệm */
 .experience-item {
   margin-bottom: 20px;
   padding-left: 15px;
   border-left: 3px solid #6c5ce7;
 }
 
+/* Loại bỏ margin cho mục kinh nghiệm cuối cùng */
 .experience-item:last-child {
   margin-bottom: 0;
 }
 
+/* Tiêu đề của mục kinh nghiệm */
 .experience-item h3 {
   color: #444;
   font-size: 1.1em;
   margin-bottom: 5px;
 }
 
+/* Định dạng cho ngày tháng */
 .date {
   color: #666;
   font-size: 0.9em;
@@ -173,66 +193,72 @@ h1 {
   align-items: center;
 }
 
+/* Biểu tượng trong phần ngày tháng */
 .date i {
   margin-right: 5px;
   color: #6c5ce7;
 }
 
+/* Định dạng cho vị trí công việc */
 .position {
   color: #6c5ce7;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
+/* Định dạng cho mục kỹ năng */
 .skill-item {
   margin-bottom: 12px;
 }
 
+/* Tên kỹ năng */
 .skill-name {
   margin-bottom: 5px;
   color: #444;
   font-weight: 500;
 }
 
+/* Danh sách phần mềm và công cụ */
 .software-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
 
+/* Định dạng cho từng mục phần mềm */
 .software-item {
   background: linear-gradient(-45deg, #f8f3ff, #f0ebff, #e8e3ff, #f8f3ff);
-  background-size: 300% 300%;
-  animation: gradientBG 8s ease infinite;
-  padding: 10px;
+  padding: 12px;
   border-radius: 6px;
   display: flex;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
+/* Hiệu ứng hover cho mục phần mềm */
 .software-item:hover {
   transform: translateY(-2px);
-  background: linear-gradient(-45deg, #e8e3ff, #f0ebff, #f8f3ff, #e8e3ff);
-  background-size: 300% 300%;
-  animation: gradientBG 3s ease infinite;
 }
 
+/* Biểu tượng trong mục phần mềm */
 .software-item i {
   color: #6c5ce7;
   margin-right: 8px;
 }
 
+/* Phần hoạt động và dự án */
 .activities {
   margin-top: 15px;
 }
 
+/* Định dạng cho mục hoạt động */
 .activity-item {
   margin-bottom: 15px;
   padding-left: 20px;
   position: relative;
 }
 
+/* Dấu chấm tròn trước mỗi mục hoạt động */
 .activity-item::before {
   content: "";
   position: absolute;
@@ -244,10 +270,12 @@ h1 {
   border-radius: 50%;
 }
 
+/* Phần giải thưởng */
 .awards {
   margin-top: 15px;
 }
 
+/* Định dạng cho mục giải thưởng */
 .award-item {
   background: #f8f3ff;
   padding: 12px;
@@ -256,14 +284,17 @@ h1 {
   transition: transform 0.3s ease;
 }
 
+/* Hiệu ứng hover cho mục giải thưởng */
 .award-item:hover {
   transform: translateY(-2px);
 }
 
+/* Loại bỏ margin cho mục giải thưởng cuối cùng */
 .award-item:last-child {
   margin-bottom: 0;
 }
 
+/* Phần sở thích */
 .interests {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -271,8 +302,11 @@ h1 {
   margin-top: 20px;
 }
 
+/* Định dạng cho mục sở thích */
 .interest-item {
-  background: #f8f3ff;
+  background: linear-gradient(-45deg, #e8e3ff, #f0ebff, #f8f3ff, #e8e3ff);
+  background-size: 300% 300%;
+  animation: gradientBG 3s ease infinite;
   text-align: center;
   padding: 15px;
   border-radius: 8px;
@@ -285,37 +319,44 @@ h1 {
   border: 2px solid transparent;
 }
 
+/* Hiệu ứng hover cho mục sở thích */
 .interest-item:hover {
   transform: translateY(-5px);
   border-color: #6c5ce7;
   box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
 }
 
+/* Biểu tượng trong mục sở thích */
 .interest-item i {
   font-size: 24px;
   color: #6c5ce7;
   margin-bottom: 10px;
 }
 
+/* Chữ trong mục sở thích */
 .interest-item p {
   margin: 0;
   font-weight: 500;
 }
 
+/* Định dạng cho mục sở thích trong chế độ tối */
 .dark-mode .interest-item {
   background: #1a1b2e;
 }
 
+/* Hiệu ứng hover cho mục sở thích trong chế độ tối */
 .dark-mode .interest-item:hover {
   border-color: #a363d9;
   background: #2a2b45;
   box-shadow: 0 5px 15px rgba(163, 99, 217, 0.1);
 }
 
+/* Biểu tượng sở thích trong chế độ tối */
 .dark-mode .interest-item i {
   color: #a363d9;
 }
 
+/* Phần tham khảo */
 .reference {
   background: #f8f3ff;
   padding: 20px;
@@ -323,51 +364,61 @@ h1 {
   margin-top: 20px;
 }
 
+/* Đoạn văn trong phần tham khảo */
 .reference p {
   margin-bottom: 5px;
 }
 
+/* Loại bỏ margin cho đoạn văn cuối cùng */
 .reference p:last-child {
   margin-bottom: 0;
 }
 
-/* Dark mode styles */
+/* Định dạng cho chế độ tối */
 .dark-mode {
   background: #1a1b2e;
   color: #e4e4e4;
 }
 
+/* Định dạng các cột trong chế độ tối */
 .dark-mode .left-column,
 .dark-mode .right-column {
   background: #242640;
   box-shadow: 0 0 20px rgba(0,0,0,0.2);
 }
 
+/* Tiêu đề trong chế độ tối */
 .dark-mode .section h2 {
   color: #a363d9;
   border-bottom-color: #363b65;
 }
 
+/* Mục kinh nghiệm trong chế độ tối */
 .dark-mode .experience-item {
   border-left-color: #a363d9;
 }
 
+/* Tiêu đề mục kinh nghiệm trong chế độ tối */
 .dark-mode .experience-item h3 {
   color: #e4e4e4;
 }
 
+/* Ngày tháng trong chế độ tối */
 .dark-mode .date {
   color: #b4b4b4;
 }
 
+/* Vị trí công việc trong chế độ tối */
 .dark-mode .position {
   color: #a363d9;
 }
 
+/* Tên kỹ năng trong chế độ tối */
 .dark-mode .skill-name {
   color: #e4e4e4;
 }
 
+/* Các mục trong chế độ tối */
 .dark-mode .software-item,
 .dark-mode .award-item,
 .dark-mode .interest-item,
@@ -376,31 +427,36 @@ h1 {
   border: 1px solid #363b65;
 }
 
+/* Hiệu ứng hover cho các mục trong chế độ tối */
 .dark-mode .software-item:hover,
 .dark-mode .award-item:hover,
 .dark-mode .interest-item:hover {
   background: #2a2b45;
 }
 
+/* Biểu tượng trong chế độ tối */
 .dark-mode .software-item i,
 .dark-mode .interest-item i {
   color: #a363d9;
 }
 
+/* Dấu chấm tròn trong chế độ tối */
 .dark-mode .activity-item::before {
   background: #a363d9;
 }
 
+/* Liên kết mạng xã hội trong chế độ tối */
 .dark-mode .social-link {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Hiệu ứng hover cho liên kết mạng xã hội trong chế độ tối */
 .dark-mode .social-link:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   background-position: right center;
 }
 
-/* Dark mode toggle button */
+/* Nút chuyển đổi chế độ tối/sáng */
 .dark-mode-toggle {
   position: fixed;
   top: 20px;
@@ -422,23 +478,26 @@ h1 {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Hiệu ứng hover cho nút chuyển đổi */
 .dark-mode-toggle:hover {
   transform: scale(1.1);
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Nút chuyển đổi trong chế độ tối */
 .dark-mode .dark-mode-toggle {
   color: #a363d9;
   background: rgba(26, 26, 46, 0.9);
 }
 
-/* Responsive styles */
+/* Responsive cho màn hình lớn */
 @media (max-width: 1024px) {
   .main-content {
     grid-template-columns: 1fr;
   }
 }
 
+/* Responsive cho màn hình trung bình */
 @media (max-width: 768px) {
   .main-content {
     padding: 15px;
@@ -467,7 +526,7 @@ h1 {
   }
 }
 
-/* Print styles */
+/* Định dạng cho chế độ in */
 @media print {
   body {
     background: white;
@@ -483,7 +542,7 @@ h1 {
   }
 }
 
-/* Social media contact styles */
+/* Phần liên kết mạng xã hội */
 .social-links {
   display: flex;
   gap: 15px;
@@ -491,6 +550,7 @@ h1 {
   flex-wrap: wrap;
 }
 
+/* Định dạng cho liên kết mạng xã hội */
 .social-link {
   display: flex;
   align-items: center;
@@ -504,17 +564,19 @@ h1 {
   animation: gradientBG 8s ease infinite;
 }
 
+/* Hiệu ứng hover cho liên kết mạng xã hội */
 .social-link:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(108, 92, 231, 0.2);
 }
 
+/* Biểu tượng trong liên kết mạng xã hội */
 .social-link i {
   margin-right: 8px;
   font-size: 1.2em;
 }
 
-/* Social media specific colors */
+/* Màu sắc cho từng loại liên kết */
 .social-link.github {
   background: linear-gradient(-45deg, #333, #666, #444, #333);
 }
@@ -531,15 +593,7 @@ h1 {
   background: linear-gradient(-45deg, #EA4335, #DB4437, #d32f2f, #EA4335);
 }
 
-.dark-mode .social-link {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode .social-link:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Navbar styles */
+/* Thanh điều hướng */
 .navbar {
   background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -549,6 +603,7 @@ h1 {
   width: 100%;
 }
 
+/* Container cho thanh điều hướng */
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -558,6 +613,7 @@ h1 {
   padding: 15px 20px;
 }
 
+/* Liên kết trong thanh điều hướng */
 .nav-link {
   color: #333;
   text-decoration: none;
@@ -570,34 +626,39 @@ h1 {
   gap: 8px;
 }
 
+/* Biểu tượng trong liên kết điều hướng */
 .nav-link i {
   font-size: 1.1em;
   color: #6c5ce7;
 }
 
+/* Hiệu ứng hover cho liên kết điều hướng */
 .nav-link:hover {
   background: #f8f3ff;
   transform: translateY(-2px);
 }
 
-/* Dark mode navbar */
+/* Thanh điều hướng trong chế độ tối */
 .dark-mode .navbar {
   background: #242640;
 }
 
+/* Liên kết điều hướng trong chế độ tối */
 .dark-mode .nav-link {
   color: #e4e4e4;
 }
 
+/* Hiệu ứng hover cho liên kết điều hướng trong chế độ tối */
 .dark-mode .nav-link:hover {
   background: #2a2b45;
 }
 
+/* Biểu tượng điều hướng trong chế độ tối */
 .dark-mode .nav-link i {
   color: #a363d9;
 }
 
-/* Responsive navbar */
+/* Responsive cho thanh điều hướng */
 @media (max-width: 768px) {
   .nav-container {
     flex-wrap: wrap;
@@ -611,7 +672,7 @@ h1 {
   }
 }
 
-/* Two column grid for specific sections */
+/* Grid layout cho thông tin và liên hệ */
 .info-and-contact {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -619,6 +680,7 @@ h1 {
   margin-bottom: 40px;
 }
 
+/* Grid layout cho kỹ năng và công cụ */
 .skills-and-tools {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -626,15 +688,18 @@ h1 {
   margin-bottom: 40px;
 }
 
+/* Định dạng cho danh sách mục tiêu nghề nghiệp */
 .career-goals {
   list-style: none;
   padding: 0;
 }
 
+/* Định dạng cho mục tiêu chính */
 .career-goals > li {
   margin-bottom: 20px;
 }
 
+/* Định dạng cho tiêu đề mục tiêu */
 .career-goals > li > strong {
   display: block;
   color: #6c5ce7;
@@ -642,12 +707,14 @@ h1 {
   font-size: 1.1em;
 }
 
+/* Danh sách mục tiêu con */
 .career-goals ul {
   list-style: disc;
   padding-left: 20px;
   margin-top: 10px;
 }
 
+/* Định dạng cho từng mục tiêu con */
 .career-goals ul li {
   margin-bottom: 8px;
   line-height: 1.5;
