@@ -4,9 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Dark mode toggle
     initDarkMode();
-    
-    // Profile image upload
-    initProfileImageUpload();
 });
 
 // Progress bars animation
@@ -50,41 +47,6 @@ function initDarkMode() {
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode');
             darkModeToggle.querySelector('i').className = 'fas fa-sun';
-        }
-    }
-}
-
-// Profile image upload
-function initProfileImageUpload() {
-    const editImageBtn = document.querySelector('.edit-image-btn');
-    const profileImage = document.getElementById('profile-image');
-
-    if (editImageBtn && profileImage) {
-        editImageBtn.addEventListener('click', () => {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            
-            input.onchange = (e) => {
-                const file = e.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (event) => {
-                        profileImage.src = event.target.result;
-                        // Save to localStorage
-                        localStorage.setItem('profileImage', event.target.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            };
-            
-            input.click();
-        });
-
-        // Load saved profile image
-        const savedImage = localStorage.getItem('profileImage');
-        if (savedImage) {
-            profileImage.src = savedImage;
         }
     }
 }
