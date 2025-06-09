@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<!-- Trang chủ của nhóm Ngũ Vị Hương - Hiển thị thông tin và CV của các thành viên -->
+<!--
+=== TRANG PORTFOLIO NHÓM NGŨ VỊ HƯƠNG ===
+- Mục đích: Hiển thị thông tin và CV của 5 thành viên nhóm
+- Cấu trúc:
+  1. Header: Tên nhóm và mô tả
+  2. Grid 5 thẻ thành viên, mỗi thẻ gồm:
+     - Ảnh đại diện
+     - Tên và vai trò
+     - Nút xem CV
+     - Liên kết mạng xã hội
+  3. Footer: Thông tin nhóm và link GitHub
+- Tính năng: 
+  - Chế độ sáng/tối
+  - Hiệu ứng hover và animation
+  - Responsive trên mọi thiết bị
+-->
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ngũ Vị Hương - Team Portfolio</title>
-    <!-- Font Awesome cho các biểu tượng -->
+    <!-- === PHẦN RESOURCES === -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- File CSS chính -->
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <!-- Nút chuyển đổi chế độ sáng/tối -->
+    <!-- === PHẦN ĐIỀU KHIỂN DARK MODE === -->
     <button class="dark-mode-toggle" title="Chuyển đổi chế độ sáng/tối">
         <i class="fas fa-moon"></i>
     </button>
 
-    <!-- Container chính chứa toàn bộ nội dung -->
+    <!-- === CONTAINER CHÍNH === -->
     <div class="team-container">
-        <!-- Phần header với tên nhóm -->
+        <!-- === PHẦN HEADER === -->
         <div class="team-header">
             <h1>Ngũ Vị Hương</h1>
             <p class="team-description">Nhóm 5 thành viên</p>
         </div>
 
-        <!-- Grid hiển thị thông tin các thành viên -->
+        <!-- === PHẦN GRID THÀNH VIÊN === -->
         <div class="members-grid">
-            <!-- Thẻ thông tin thành viên 1 - Trưởng nhóm -->
+            <!-- Thẻ thành viên 1 - Trưởng nhóm -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="/imgs/nhu.png" alt="Thành viên 1">
@@ -36,7 +50,6 @@
                 </div>
                 <h3>Bùi Đặng Quỳnh Như</h3>
                 <p>Trưởng nhóm</p>
-                <!-- Liên kết mạng xã hội của thành viên -->
                 <div class="member-social">
                     <a href="https://github.com/nhunhu2310" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://www.facebook.com/bdqnnnn.2310/" target="_blank"><i class="fab fa-facebook"></i></a>
@@ -44,7 +57,7 @@
                 </div>
             </div>
 
-            <!-- Thẻ thông tin thành viên 2 -->
+            <!-- Thẻ thành viên 2 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member2.jpg" alt="Thành viên 2">
@@ -61,7 +74,7 @@
                 </div>
             </div>
 
-            <!-- Thẻ thông tin thành viên 3 -->
+            <!-- Thẻ thành viên 3 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member3.jpg" alt="Thành viên 3">
@@ -78,7 +91,7 @@
                 </div>
             </div>
 
-            <!-- Thẻ thông tin thành viên 4 -->
+            <!-- Thẻ thành viên 4 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member4.jpg" alt="Thành viên 4">
@@ -95,7 +108,7 @@
                 </div>
             </div>
 
-            <!-- Thẻ thông tin thành viên 5 -->
+            <!-- Thẻ thành viên 5 -->
             <div class="member-card">
                 <div class="member-image">
                     <img src="imgs/member5.jpg" alt="Thành viên 5">
@@ -113,7 +126,7 @@
             </div>
         </div>
 
-        <!-- Footer chứa thông tin về nhóm và liên kết -->
+        <!-- === PHẦN FOOTER === -->
         <div class="team-footer">
             <div class="team-info">
                 <h2>Về chúng tôi</h2>
@@ -125,7 +138,7 @@
         </div>
     </div>
 
-    <!-- Script JavaScript cho các tính năng tương tác -->
+    <!-- === PHẦN JAVASCRIPT === -->
     <script src="home.js"></script>
 </body>
 </html> 

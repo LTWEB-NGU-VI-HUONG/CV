@@ -1,4 +1,4 @@
-/* ===== RESET VÀ THIẾT LẬP CƠ BẢN ===== */
+/* ===== RESET CSS ===== */
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +6,7 @@
     font-family: 'Arial', sans-serif;
 }
 
+/* ===== STYLE CƠ BẢN ===== */
 body {
     background: #f8f3ff;
     color: #333;
