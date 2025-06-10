@@ -1,66 +1,69 @@
-<!-- Khai báo loại tài liệu HTML5 -->
 <!DOCTYPE html>
-<!-- Thiết lập ngôn ngữ trang web là tiếng Việt -->
 <html lang="vi">
 <head>
-  <!-- Thiết lập mã hóa ký tự UTF-8 để hỗ trợ tiếng Việt -->
+  <!-- === PHẦN META VÀ RESOURCES === -->
   <meta charset="UTF-8">
-  <!-- Thiết lập viewport cho thiết bị di động -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Tiêu đề trang web -->
   <title>CV - Bùi Đặng Quỳnh Như</title>
-  <!-- Liên kết đến thư viện Font Awesome cho các biểu tượng -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Liên kết đến file CSS tùy chỉnh -->
   <link rel="stylesheet" href="nhu.css">
 </head>
 <body>
-  <!-- Nút chuyển đổi chế độ tối/sáng -->
+  <!-- === PHẦN ĐIỀU KHIỂN DARK MODE === -->
   <button id="darkModeToggle" class="dark-mode-toggle">
     <i class="fas fa-moon"></i>
   </button>
 
-  <!-- Phần banner chứa ảnh đại diện và thông tin cơ bản -->
+  <!-- === PHẦN BANNER - THÔNG TIN CƠ BẢN === -->
   <div class="banner">
     <div class="profile-container">
-      <div class="profile-avatar">
-        <img src="/imgs/nhu.png" alt="Profile Picture" id="profile-image">
-      </div>
       <h1>BÙI ĐẶNG QUỲNH NHƯ</h1>
       <div class="job-title">Web Developer</div>
     </div>
   </div>
 
-  <!-- Thanh điều hướng -->
+  <!-- === PHẦN NAVIGATION - MENU ĐIỀU HƯỚNG === -->
   <nav class="navbar">
     <div class="nav-container">
-      <a href="/home.html" class="nav-link home-link">
+      <a href="../home.html" class="nav-link" title="Về trang chủ">
         <i class="fas fa-home"></i>
         <span>Trang chủ</span>
       </a>
-      <a href="#about" class="nav-link">
+      <a href="#about" class="nav-link" onclick="scrollToSection('about')" title="Thông tin giới thiệu">
         <i class="fas fa-user"></i>
         <span>Giới thiệu</span>
       </a>
-      <a href="#skills" class="nav-link">
+      <a href="#education" class="nav-link" onclick="scrollToSection('education')" title="Thông tin học vấn">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Học vấn</span>
+      </a>  
+      <a href="#skills" class="nav-link" onclick="scrollToSection('skills')" title="Các kỹ năng">
         <i class="fas fa-tools"></i>
         <span>Kỹ năng</span>
       </a>
-      <a href="#projects" class="nav-link">
+      <a href="#projects" class="nav-link" onclick="scrollToSection('projects')" title="Các dự án">
         <i class="fas fa-project-diagram"></i>
         <span>Dự án</span>
       </a>
-      <a href="#contact" class="nav-link">
+      <a href="#contact" class="nav-link" onclick="scrollToSection('contact')" title="Thông tin liên hệ">
         <i class="fas fa-envelope"></i>
         <span>Liên hệ</span>
       </a>
     </div>
   </nav>
 
-  <!-- Nội dung chính của trang -->
+  <!-- === PHẦN NỘI DUNG CHÍNH === -->
   <div class="main-content">
-    <!-- Phần thông tin cá nhân và liên hệ -->
-    <div class="info-and-contact">
+    <!-- === CỘT TRÁI - THÔNG TIN CÁ NHÂN (30%) === -->
+    <div class="left-column">
+      <!-- Ảnh đại diện và thông tin liên hệ -->
+      <div class="profile-avatar-container">
+        <div class="profile-avatar">
+          <img src="/imgs/nhu.png" alt="Profile Picture" id="profile-image">
+        </div>
+      </div>
+
+      <!-- Thông tin cá nhân: địa chỉ, email, SĐT, ngày sinh -->
       <section id="about" class="section">
         <h2><i class="fas fa-user"></i>Thông tin cá nhân</h2>
         <ul class="info-list">
@@ -71,6 +74,7 @@
         </ul>
       </section>
 
+      <!-- Liên kết mạng xã hội và thông tin liên hệ -->
       <section id="contact" class="section">
         <h2><i class="fas fa-address-book"></i>Liên hệ</h2>
         <div class="social-links">
@@ -92,67 +96,10 @@
           </a>
         </div>
       </section>
-    </div>
 
-    <!-- Phần mục tiêu nghề nghiệp -->
-    <section class="section">
-      <h2><i class="fas fa-bullseye"></i>Mục tiêu nghề nghiệp</h2>
-      <p>
-        Là một sinh viên đam mê công nghệ và phát triển web, tôi mong muốn trở thành một Web Developer chuyên nghiệp trong vòng 3-5 năm tới. Mục tiêu của tôi bao gồm:
-      </p>
-      <ul class="career-goals">
-        <li>
-          <strong>Ngắn hạn (1-2 năm):</strong>
-          <ul>
-            <li>Hoàn thành chương trình đại học với kết quả học tập tốt</li>
-            <li>Tích lũy kinh nghiệm thực tế thông qua các dự án cá nhân và thực tập tại các công ty công nghệ</li>
-            <li>Nâng cao kỹ năng lập trình web với các công nghệ hiện đại như React, Node.js</li>
-            <li>Cải thiện khả năng tiếng Anh để đọc hiểu tài liệu chuyên ngành và giao tiếp trong môi trường quốc tế</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Dài hạn (3-5 năm):</strong>
-          <ul>
-            <li>Phát triển thành Full-stack Developer với kiến thức chuyên sâu về cả front-end và back-end</li>
-            <li>Tham gia vào các dự án lớn và đóng góp vào sự phát triển của công ty</li>
-            <li>Không ngừng cập nhật và học hỏi công nghệ mới để theo kịp xu hướng phát triển của ngành</li>
-            <li>Chia sẻ kiến thức và kinh nghiệm với cộng đồng lập trình viên thông qua blog và các buổi chia sẻ</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Phần học vấn -->
-    <section class="section">
-      <h2><i class="fas fa-graduation-cap"></i>Học vấn</h2>
-      <div class="experience-item">
-        <h3>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI THÀNH PHỐ HỒ CHÍ MINH</h3>
-        <div class="date"><i class="far fa-calendar-alt"></i>2023 - Hiện tại</div>
-        <p>Khoa: Viện Công nghệ thông tin và Điện, điện tử</p>
-        <p>Ngành: Công nghệ thông tin</p>
-        <p>Chuyên ngành: Công nghệ thông tin</p>
-      </div>
-    </section>
-
-    <!-- Phần kỹ năng và công cụ -->
-    <div class="skills-and-tools">
-      <section id="skills" class="section">
-        <h2><i class="fas fa-tools"></i>Kỹ năng chuyên môn</h2>
-        <div class="skills-container">
-          <div class="skill-item">
-            <div class="skill-name">HTML/CSS</div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-name">JavaScript</div>
-          </div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Tiếng Anh</div>
-        </div>
-      </section>
-
+      <!-- Công cụ và phần mềm sử dụng -->
       <section class="section">
-        <h2><i class="fas fa-laptop-code"></i>Công nghệ & Công cụ</h2>
+        <h2><i class="fas fa-laptop-code"></i>Công cụ phát triển</h2>
         <div class="software-list">
           <div class="software-item">
             <i class="fab fa-github"></i>
@@ -162,46 +109,151 @@
             <i class="fas fa-code"></i>
             <span>VS Code</span>
           </div>
+          <div class="software-item">
+            <i class="fab fa-figma"></i>
+            <span>Figma</span>
+          </div>
         </div>
       </section>
     </div>
 
-    <!-- Phần dự án và hoạt động -->
-    <section id="projects" class="section">
-      <h2><i class="fas fa-star"></i>Dự án & Hoạt động</h2>
-      <div class="activities">
-        <div class="activity-item">
-          <strong>Website Portfolio</strong>
-          <ul>
-            <li>Thiết kế và phát triển website portfolio cá nhân</li>
-            <li>Sử dụng HTML, CSS, JavaScript</li>
-            <li>Responsive design cho mọi thiết bị</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <!-- === CỘT PHẢI - THÔNG TIN CHUYÊN MÔN (70%) === -->
+    <div class="right-column">
+      <!-- Mục tiêu nghề nghiệp ngắn hạn và dài hạn -->
+      <section class="section">
+        <h2><i class="fas fa-bullseye"></i>Mục tiêu nghề nghiệp</h2>
+        <p>
+          Là một sinh viên đam mê công nghệ và phát triển web, tôi mong muốn trở thành một Web Developer chuyên nghiệp trong vòng 3-5 năm tới. Mục tiêu của tôi bao gồm:
+        </p>
+        <ul class="career-goals">
+          <li>
+            <strong>Ngắn hạn (1-2 năm):</strong>
+            <ul>
+              <li>Hoàn thành chương trình đại học với kết quả học tập tốt</li>
+              <li>Tích lũy kinh nghiệm thực tế thông qua các dự án cá nhân và thực tập tại các công ty công nghệ</li>
+              <li>Nâng cao kỹ năng lập trình web với các công nghệ hiện đại như React, Node.js</li>
+              <li>Cải thiện khả năng tiếng Anh để đọc hiểu tài liệu chuyên ngành và giao tiếp trong môi trường quốc tế</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Dài hạn (3-5 năm):</strong>
+            <ul>
+              <li>Phát triển thành Full-stack Developer với kiến thức chuyên sâu về cả front-end và back-end</li>
+              <li>Tham gia vào các dự án lớn và đóng góp vào sự phát triển của công ty</li>
+              <li>Không ngừng cập nhật và học hỏi công nghệ mới để theo kịp xu hướng phát triển của ngành</li>
+              <li>Chia sẻ kiến thức và kinh nghiệm với cộng đồng lập trình viên thông qua blog và các buổi chia sẻ</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
 
-    <!-- Phần sở thích -->
-    <section class="section">
-      <h2><i class="fas fa-heart"></i>Sở thích</h2>
-      <div class="interests">
-        <a href="https://www.youtube.com/watch?v=xHWIhCUnfOE/" class="interest-item" target="_blank">
-          <i class="fas fa-music"></i>
-          <p>Âm nhạc</p>
-        </a>
-        <a href="https://kphude.com/when-life-gives-you-tangerines-khi-cuoc-doi-cho-ban-qua-quyt/" class="interest-item" target="_blank">
-          <i class="fas fa-camera"></i>
-          <p>Xem phim</p>
-        </a>
-        <a href="https://breakdownblogs.wordpress.com/wp-content/uploads/2018/02/nha_gia_kim__paulo_coelho.pdf" class="interest-item" target="_blank">
-          <i class="fas fa-book"></i>
-          <p>Đọc sách</p>
-        </a>
-      </div>
-    </section>
+ <!-- Thông tin học vấn và chuyên ngành -->
+      <section id="education" class="section">
+        <h2><i class="fas fa-graduation-cap"></i>Học vấn</h2>
+        <div class="experience-item">
+          <h3>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI THÀNH PHỐ HỒ CHÍ MINH</h3>
+          <div class="date"><i class="far fa-calendar-alt"></i>2023 - Hiện tại</div>
+          <p>Khoa: Viện Công nghệ thông tin và Điện, điện tử</p>
+          <p>Ngành: Công nghệ thông tin</p>
+          <p>Chuyên ngành: Công nghệ thông tin</p>
+        </div>
+      </section>
+
+      <!-- Thông tin chứng chỉ/ giải thưởng -->
+      <section class="section">
+        <h2><i class="fas fa-certificate"></i>Chứng chỉ/ Giải thưởng</h2>
+        <div class="experience-item">
+          <p>Không có</p>
+        </div>
+      </section>
+      <!-- Kỹ năng chuyên môn: Front-end, Back-end, Ngôn ngữ -->
+      <section id="skills" class="section">
+        <h2><i class="fas fa-tools"></i>Kỹ năng chuyên môn</h2>
+        <div class="skills-grid">
+          <!-- Front-end Development -->
+          <div class="skill-category">
+            <h3><i class="fas fa-laptop-code"></i>Front-end Development</h3>
+            <div class="skills-container">
+              <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <div class="skill-name">HTML5</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <div class="skill-name">CSS3</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <div class="skill-name">JavaScript</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Back-end Development -->
+          <div class="skill-category">
+            <h3><i class="fas fa-server"></i>Back-end Development</h3>
+            <div class="skills-container">
+              <div class="skill-item">
+                <i class="fab fa-php"></i>
+                <div class="skill-name">PHP</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ngôn ngữ -->
+          <div class="skill-category">
+            <h3><i class="fas fa-language"></i>Ngôn ngữ</h3>
+            <div class="skills-container">
+              <div class="skill-item">
+                <i class="fas fa-flag"></i>
+                <div class="skill-name">Tiếng Việt</div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-flag-usa"></i>
+                <div class="skill-name">Tiếng Anh</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Các dự án đã thực hiện -->
+      <section id="projects" class="section">
+        <h2><i class="fas fa-star"></i>Dự án & Hoạt động</h2>
+        <div class="activities">
+          <div class="activity-item">
+            <strong>Website Portfolio</strong>
+            <ul>
+              <li>Thiết kế và phát triển website portfolio cá nhân</li>
+              <li>Sử dụng HTML, CSS, JavaScript</li>
+              <li>Responsive design cho mọi thiết bị</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sở thích và hoạt động ngoại khóa -->
+      <section class="section">
+        <h2><i class="fas fa-heart"></i>Sở thích</h2>
+        <div class="interests">
+          <a href="https://www.youtube.com/watch?v=xHWIhCUnfOE/" class="interest-item" target="_blank">
+            <i class="fas fa-music"></i>
+            <p>Âm nhạc</p>
+          </a>
+          <a href="https://kphude.com/when-life-gives-you-tangerines-khi-cuoc-doi-cho-ban-qua-quyt/" class="interest-item" target="_blank">
+            <i class="fas fa-camera"></i>
+            <p>Xem phim</p>
+          </a>
+          <a href="https://breakdownblogs.wordpress.com/wp-content/uploads/2018/02/nha_gia_kim__paulo_coelho.pdf" class="interest-item" target="_blank">
+            <i class="fas fa-book"></i>
+            <p>Đọc sách</p>
+          </a>
+        </div>
+      </section>
+    </div>
   </div>
 
-  <!-- Liên kết đến file JavaScript -->
+  <!-- === PHẦN JAVASCRIPT === -->
   <script src="nhu.js"></script>
 </body>
 </html>
