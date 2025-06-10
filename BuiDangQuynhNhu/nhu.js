@@ -63,9 +63,7 @@ function initDarkMode() {
 /* ============================
    3. CHỨC NĂNG IN CV
    ============================ */
-function printCV() {
-    window.print();
-}
+// Xóa phần in CV
 
 /* ============================
    4. HIỆU ỨNG TƯƠNG TÁC

@@ -594,24 +594,6 @@ body.dark-mode .dark-mode-toggle:hover {
   }
 }
 
-/* ============================
-   11. PRINT STYLES
-   ============================ */
-@media print {
-  body {
-    background: white;
-  }
-
-  .main-content {
-    box-shadow: none;
-  }
-
-  .edit-image-btn,
-  .avatar-overlay {
-    display: none !important;
-  }
-}
-
 /* Phần liên kết mạng xã hội */
 .social-links {
   display: flex;
