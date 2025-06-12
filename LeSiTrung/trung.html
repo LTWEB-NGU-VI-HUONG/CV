@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CV - Trung</title>
+  <title>CV -Lê Sĩ Trung</title>
   <link rel="stylesheet" href="trung.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -30,6 +30,10 @@
   </style>
 </head>
 <body>
+  <!-- === PHẦN ĐIỀU KHIỂN DARK MODE === -->
+  <button id="darkModeToggle" class="dark-mode-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
   <div class="banner">
     <div class="banner-content">
       <h1>Chào mừng đến với CV của tôi!</h1>
@@ -177,20 +181,39 @@ Thiết kế và phát triển website cho phép người dùng đăng ký tài 
   </footer>
 
   <!-- JS -->
-  <script>
-    function scrollToSection(id) {
-      const section = document.getElementById(id);
-      if (section) section.scrollIntoView({ behavior: 'smooth' });
-    }
+   <script src="trung.js"></script>
+<script>
+  // Chuyển sáng tối
+  const toggleBtn = document.getElementById('darkModeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+  const savedTheme = localStorage.getItem('theme');
 
-    function toggleHobbyDetails() {
-      const details = document.getElementById('hobby-details');
-      if (details.style.display === 'none') {
-        details.style.display = 'block';
-      } else {
-        details.style.display = 'none';
-      }
+  // Khởi tạo
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark.matches)) {
+    document.body.classList.add('dark-mode');
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    toggleBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+
+  // Cuộn mượt
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Hiện/ẩn sở thích
+  function toggleHobbyDetails() {
+    const details = document.getElementById('hobby-details');
+    if (details) {
+      details.style.display = (details.style.display === 'none') ? 'block' : 'none';
     }
-  </script>
+  }
+</script>
 </body>
 </html>

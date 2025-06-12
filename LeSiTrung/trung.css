@@ -870,3 +870,127 @@ ul {
   transform: translateY(-2px);
   box-shadow: 0 8px 14px rgba(0,0,0,0.2);
 }
+/* ============================
+   9. DARK MODE STYLES
+   ============================ */
+body.dark-mode {
+  background: #1a1b2e;
+  color: #e4e4e4;
+}
+
+/* Định dạng các cột trong chế độ tối */
+.dark-mode .left-column,
+.dark-mode .right-column {
+  background: #242640;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Tiêu đề trong chế độ tối */
+.dark-mode .section h2 {
+  color: #a363d9;
+  border-bottom-color: #363b65;
+}
+
+/* Mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item {
+  border-left-color: #a363d9;
+}
+
+/* Tiêu đề mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item h3 {
+  color: #e4e4e4;
+}
+
+/* Ngày tháng trong chế độ tối */
+.dark-mode .date {
+  color: #b4b4b4;
+}
+
+/* Vị trí công việc trong chế độ tối */
+.dark-mode .position {
+  color: #a363d9;
+}
+
+/* Tên kỹ năng trong chế độ tối */
+.dark-mode .skill-name {
+  color: #e4e4e4;
+}
+
+/* Các mục trong chế độ tối */
+.dark-mode .software-item,
+.dark-mode .award-item,
+.dark-mode .interest-item,
+.dark-mode .reference {
+  background: #1a1b2e;
+  border: 1px solid #363b65;
+}
+
+/* Hiệu ứng hover cho các mục trong chế độ tối */
+.dark-mode .software-item:hover,
+.dark-mode .award-item:hover,
+.dark-mode .interest-item:hover {
+  background: #2a2b45;
+}
+
+/* Biểu tượng trong chế độ tối */
+.dark-mode .software-item i,
+.dark-mode .interest-item i {
+  color: #a363d9;
+}
+
+/* Dấu chấm tròn trong chế độ tối */
+.dark-mode .activity-item::before {
+  background: #a363d9;
+}
+
+/* Liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hiệu ứng hover cho liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  background-position: right center;
+}
+
+/* ===== NÚT CHUYỂN ĐỔI SÁNG/TỐI ===== */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(85, 83, 83, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    background: #4834d4;
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle i {
+    color: white;
+}
+
+/* Nút trong chế độ tối */
+body.dark-mode .dark-mode-toggle {
+    background: #7c4dff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: #6c5ce7;
+}
