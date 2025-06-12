@@ -1,0 +1,396 @@
+:root {
+  --primary-color: #2c3e50;
+  --accent-color: #2980b9;
+  --background-color: #ecf0f1;
+  --text-color: #34495e;
+  --light-text-color: #7f8c8d;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for body */
+}
+.container {
+  max-width: 900px;
+  margin: 2rem auto 4rem auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for container */
+}
+
+header, .navbar {
+  background: linear-gradient(270deg, #1f2937, #3b82f6, #10b981, #f59e0b, #1f2937);
+  background-size: 1000% 1000%;
+  animation: colorShift 15s ease infinite;
+}
+
+@keyframes colorShift {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+header {
+  color: white;
+  padding: 2rem 2rem 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.photo {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--accent-color);
+  box-shadow: 0 0 10px var(--accent-color);
+}
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.header-info {
+  flex: 1;
+  min-width: 250px;
+}
+.header-info h1 {
+  margin: 0 0 0.3rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+.header-info h2 {
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+  color: var(--accent-color);
+  font-style: italic;
+  font-size: 1.3rem;
+}
+
+.contact-info {
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.social-link {
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Màu sắc cho từng loại liên kết */
+.social-link.github {
+  background: linear-gradient(-45deg, #333, #666, #444, #333);
+}
+
+.social-link.facebook {
+  background: linear-gradient(-45deg, #1877F2, #3b5998, #2851A3, #1877F2);
+}
+
+.social-link.instagram {
+  background: linear-gradient(-45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.email {
+  background: linear-gradient(-45deg, #EA4335, #DB4437, #d32f2f, #EA4335);
+}
+
+.navbar {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  z-index: 10;
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+.nav-link i {
+  font-size: 1.2rem;
+}
+.nav-link:hover, .nav-link:focus {
+  color: var(--accent-color);
+  outline: none;
+}
+
+.fixed-navbar {
+  position: fixed !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  max-width: 100%;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+main {
+  padding: 2rem;
+  transition: padding-top 0.3s ease;
+}
+section {
+  margin-bottom: 2.5rem;
+}
+section h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  transition: color 0.3s ease, border-color 0.3s ease; /* Smooth transition for h3 */
+}
+.summary p {
+  font-size: 1.1rem;
+}
+.experience-item, .education-item {
+  margin-bottom: 1.3rem;
+}
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+.item-title {
+  font-style: italic;
+  color: var(--primary-color);
+  transition: color 0.3s ease; /* Smooth transition for item-title */
+}
+.item-dates {
+  color: var(--light-text-color);
+  font-size: 0.9rem;
+  transition: color 0.3s ease; /* Smooth transition for item-dates */
+}
+.item-desc {
+  margin-top: 0.3rem;
+  font-size: 1rem;
+}
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.skill-pill {
+  background: var(--accent-color);
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.skill-pill:hover {
+  background: var(--primary-color);
+}
+
+.navbar-spacer {
+  height: 0;
+}
+
+/* Styles for the interests list */
+.interests-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Tăng khoảng cách giữa các mục */
+  justify-content: center; /* Căn giữa các mục */
+  margin-top: 1.5rem; /* Thêm khoảng cách trên */
+}
+
+.interest-item {
+  background: var(--primary-color);
+  color: white;
+  padding: 0.6rem 1.5rem; /* Tăng padding để nút lớn hơn */
+  border-radius: 30px; /* Bo tròn nhiều hơn */
+  font-weight: 600;
+  font-size: 1rem; /* Tăng kích thước chữ */
+  text-decoration: none;
+  transition: all 0.3s ease; /* Chuyển động mượt mà hơn */
+  box-shadow: 0 4px 10px rgba(74, 127, 171, 0.1); /* Đổ bóng nhẹ ban đầu */
+  display: inline-flex; /* Đảm bảo padding hoạt động đúng */
+  align-items: center;
+  justify-content: center;
+  min-width: 120px; /* Đặt chiều rộng tối thiểu cho các nút đều hơn */
+}
+
+.interest-item:hover {
+  background: var(--accent-color); /* Màu nền khi hover */
+  transform: translateY(-3px) scale(1.05); /* Nâng lên và phóng to nhẹ */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Đổ bóng mạnh hơn khi hover */
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .item-header {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .nav-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .fixed-navbar {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+  }
+}
+
+/* ===== DARK MODE STYLES ===== */
+.dark-mode {
+    background-color: #1a1a2e; /* Darker body background */
+    color: #e0e0e0; /* Lighter text for body */
+}
+
+/* Container in dark mode */
+.dark-mode .container {
+    background: #2d2d44; /* Darker background for the CV content */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Header in dark mode - giữ nguyên animation nền ban đầu */
+.dark-mode header {
+  color: #fff; /* Đảm bảo chữ trong header vẫn trắng */
+}
+.dark-mode .header-info h2 {
+  color: #a363d9; /* Màu nhấn điều chỉnh cho dark mode header */
+}
+.dark-mode .social-link {
+    color: #fff; /* Đảm bảo chữ của liên kết xã hội vẫn trắng */
+}
+.dark-mode .social-link.github {
+    background: linear-gradient(-45deg, #555, #888, #666, #555);
+}
+.dark-mode .social-link.facebook {
+    background: linear-gradient(-45deg, #1877F2, #5C8EDC, #3d6cb3, #1877F2);
+}
+.dark-mode .social-link.instagram {
+    background: linear-gradient(-45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.dark-mode .social-link.email {
+    background: linear-gradient(-45deg, #d32f2f, #ef5350, #f44336, #d32f2f);
+}
+
+/* Navbar in dark mode - giữ nguyên animation nền ban đầu */
+.dark-mode .navbar {
+  border-top: 1px solid rgba(255,255,255,0.3); /* Giữ đường viền nhất quán */
+}
+/* Navbar links in dark mode */
+.dark-mode .nav-link {
+    color: #c0c0c0; /* Màu nhạt hơn cho liên kết điều hướng */
+}
+.dark-mode .nav-link:hover, .dark-mode .nav-link:focus {
+    color: #a363d9; /* Màu nhấn khi hover/focus trong dark mode */
+}
+
+/* Section headers in dark mode */
+.dark-mode section h3 {
+    color: #a363d9; /* Màu nhấn cho tiêu đề phần */
+    border-bottom-color: #a363d9; /* Màu nhấn cho đường viền */
+}
+
+/* Item titles and dates in dark mode */
+.dark-mode .item-title {
+    color: #c0c0c0; /* Màu nhạt hơn cho tiêu đề mục */
+}
+.dark-mode .item-dates {
+    color: #999999; /* Màu chữ nhạt hơn một chút cho ngày tháng */
+}
+
+/* Skill pills in dark mode */
+.dark-mode .skill-pill {
+    background: #6c5ce7; /* Màu nhấn tối hơn cho các kỹ năng */
+    color: #fff;
+}
+.dark-mode .skill-pill:hover {
+    background: #4834d4; /* Màu chính tối hơn khi hover kỹ năng */
+}
+
+/* Interest items in dark mode */
+.dark-mode .interest-item {
+  background: #6c5ce7; /* Màu nền trong dark mode */
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.dark-mode .interest-item:hover {
+  background: #a363d9; /* Màu nền khi hover trong dark mode */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+/* Text content in dark mode */
+.dark-mode p, .dark-mode ul, .dark-mode li {
+    color: #e0e0e0; /* Đảm bảo tất cả chữ chung là màu nhạt trong dark mode */
+}
+
+/* ===== NÚT CHUYỂN ĐỔI CHẾ ĐỘ SÁNG/TỐI ===== */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+.dark-mode-toggle:hover {
+    background: #4834d4;
+    transform: scale(1.1);
+}
+
+/* Nút trong chế độ tối */
+.dark-mode .dark-mode-toggle {
+    background: #7c4dff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.dark-mode .dark-mode-toggle:hover {
+    background: #6c5ce7;
+}
