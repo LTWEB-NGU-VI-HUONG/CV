@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Của Bạn</title>
+    <link rel="stylesheet" href="trung.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="banner">
+        <div class="banner-content">
+            <h1>Chào mừng đến với CV của tôi!</h1>
+            <p>Tôi là một nhà phát triển đầy nhiệt huyết và sáng tạo.</p>
+        </div>
+    </header>
+
+    <!-- === PHẦN NAVIGATION - MENU ĐIỀU HƯỚNG === -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../home.html" class="nav-link" title="Về trang chủ">
+        <i class="fas fa-home"></i>
+        <span>Trang chủ</span>
+      </a>
+      <a href="#about" class="nav-link" onclick="scrollToSection('about')" title="Thông tin giới thiệu">
+        <i class="fas fa-user"></i>
+        <span>Giới thiệu</span>
+      </a>
+      <a href="#skills" class="nav-link" onclick="scrollToSection('skills')" title="Các kỹ năng">
+        <i class="fas fa-tools"></i>
+        <span>Kỹ năng</span>
+      </a>
+      <a href="#education" class="nav-link" onclick="scrollToSection('education')" title="Thông tin học vấn">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Học vấn</span>
+      </a>
+      <a href="#projects" class="nav-link" onclick="scrollToSection('projects')" title="Các dự án">
+        <i class="fas fa-project-diagram"></i>
+        <span>Dự án</span>
+      </a>
+      <a href="#contact" class="nav-link" onclick="scrollToSection('contact')" title="Thông tin liên hệ">
+        <i class="fas fa-envelope"></i>
+        <span>Liên hệ</span>
+      </a>
+    </div>
+  </nav>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-picture">
+                <img src="https://via.placeholder.com/150" alt="Ảnh cá nhân của bạn">
+            </div>
+            <section id="personal-info" class="card">
+                <h2><i class="fas fa-user"></i> Thông tin cá nhân</h2>
+                <ul>
+                    <li><strong>Họ và tên:</strong> [Tên của bạn]</li>
+                    <li><strong>Ngày sinh:</strong> [Ngày/tháng/năm sinh]</li>
+                    <li><strong>Giới tính:</strong> [Nam/Nữ]</li>
+                    <li><strong>Điện thoại:</strong> [Số điện thoại]</li>
+                    <li><strong>Email:</strong> [Email của bạn]</li>
+                    <li><strong>Địa chỉ:</strong> [Địa chỉ của bạn]</li>
+                </ul>
+            </section>
+
+            <section id="hobbies" class="card">
+                <h2><i class="fas fa-heart"></i> Sở thích</h2>
+                <ul>
+                    <li>Đọc sách</li>
+                    <li>Chơi game</li>
+                    <li>Du lịch</li>
+                    <li>[Sở thích khác của bạn]</li>
+                </ul>
+            </section>
+
+            <section id="languages-skills" class="card">
+                <h2><i class="fas fa-globe"></i> Ngôn ngữ & Kỹ năng</h2>
+                <h3>Ngôn ngữ</h3>
+                <ul>
+                    <li>Tiếng Việt: Bản ngữ</li>
+                    <li>Tiếng Anh: [Mức độ thành thạo]</li>
+                </ul>
+                <h3>Kỹ năng</h3>
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>ReactJS / VueJS / Angular (Nếu có)</li>
+                    <li>Node.js / Python / PHP (Nếu có)</li>
+                    <li>[Kỹ năng khác của bạn]</li>
+                </ul>
+            </section>
+
+            <section id="certificates-awards" class="card">
+                <h2><i class="fas fa-award"></i> Chứng chỉ - Giải thưởng</h2>
+                <ul>
+                    <li>[Tên chứng chỉ/Giải thưởng 1] - [Năm]</li>
+                    <li>[Tên chứng chỉ/Giải thưởng 2] - [Năm]</li>
+                    <li>Không có</li>
+                </ul>
+            </section>
+        </aside>
+
+        <main class="content">
+            <section id="career-objective" class="card">
+                <h2><i class="fas fa-bullseye"></i> Mục tiêu nghề nghiệp</h2>
+                <p>
+                    [Viết mục tiêu nghề nghiệp của bạn tại đây. Ví dụ: "Tìm kiếm một vị trí lập trình viên Front-end/Back-end/Full-stack tại một môi trường làm việc năng động, nơi tôi có thể áp dụng kiến thức và kỹ năng để phát triển các sản phẩm chất lượng cao, đồng thời không ngừng học hỏi và phát triển bản thân."]
+                </p>
+            </section>
+
+            <section id="projects" class="card">
+                <h2><i class="fas fa-project-diagram"></i> Dự án</h2>
+                <div class="project-item">
+                    <h3>[Tên dự án 1]</h3>
+                    <p><strong>Mô tả:</strong> [Mô tả ngắn gọn về dự án, vai trò của bạn, và công nghệ sử dụng.]</p>
+                    <p><strong>Link:</strong> <a href="[Link GitHub/Demo dự án 1]" target="_blank">[Link dự án]</a></p>
+                </div>
+                <div class="project-item">
+                    <h3>[Tên dự án 2]</h3>
+                    <p><strong>Mô tả:</strong> [Mô tả ngắn gọn về dự án, vai trò của bạn, và công nghệ sử dụng.]</p>
+                    <p><strong>Link:</strong> <a href="[Link GitHub/Demo dự án 2]" target="_blank">[Link dự án]</a></p>
+                </div>
+                </section>
+        </main>
+    </div>
+
+    <footer id="contact" class="footer">
+        <h2><i class="fas fa-paper-plane"></i> Liên hệ</h2>
+        <div class="social-links">
+            <a href="https://github.com/[Tên GitHub của bạn]" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.facebook.com/[Tên Facebook của bạn]" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.linkedin.com/in/[Tên LinkedIn của bạn]" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        <p>&copy; 2025 CV của bạn. All rights reserved.</p>
+    </footer>
+    <script src="trung.js"></script>
+</body>
+</html>
