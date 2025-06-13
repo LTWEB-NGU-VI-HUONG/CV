@@ -1,0 +1,586 @@
+/* Biến màu sắc cho chế độ sáng và tối */
+:root {
+    --primary-color: #3498db; /* Màu xanh chính */
+    --secondary-color: #2ecc71; /* Màu xanh phụ */
+    --text-color: #333; /* Màu chữ chính */
+    --background-color: #f4f7f6; /* Màu nền tổng thể */
+    --card-background: #ffffff; /* Màu nền các thẻ nội dung */
+    --border-color: #e0e0e0; /* Màu viền */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    --divider-color: #ccc; /* Màu đường phân cách */
+
+    /* Biến RGB cho primary-color (dùng cho hiệu ứng box-shadow của avatar) */
+    --primary-color-rgb-values: 52, 152, 219;
+
+    /* MÀU CHO CỘT NỘI DUNG BÊN TRÁI (XANH BIỂN NHẠT) */
+    --left-column-bg: #e0f2f7; /* Màu xanh biển nhạt nhẹ nhàng */
+    /* MÀU CHO CỘT NỘI DUNG BÊN PHẢI (VẪN LÀ MÀU TRẮNG) */
+    --right-column-bg: #ffffff; /* Trở lại màu trắng */
+
+
+    /* Màu sắc cho navbar */
+    --navbar-bg-color: #fff;
+    --navbar-item-color: #333;
+    --navbar-item-hover-color: #3498db;
+    --navbar-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    /* MÀU BANNER */
+    --banner-color-1: #a8dadc; /* Light Blue-Green */
+    --banner-color-2: #80ced6; /* Powder Blue */
+    --banner-color-3: #61a5c2; /* Steel Blue */
+    --banner-color-4: #4682b4; /* Lighter Steel Blue */
+}
+
+/* Chế độ tối (Dark Mode) */
+body.dark-mode {
+    --primary-color: #89cff0;
+    --secondary-color: #79f2a6;
+    --text-color: #e0e0e0;
+    --background-color: #1a1a1a;
+    --card-background: #2c2c2c;
+    --border-color: #444;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    --divider-color: #666;
+
+    /* Biến RGB cho primary-color trong dark mode */
+    --primary-color-rgb-values: 137, 207, 240;
+
+    /* MÀU CHO CỘT NỘI DUNG BÊN TRÁI (DARK MODE - XANH BIỂN ĐẬM HƠN) */
+    --left-column-bg: #1c3d52;
+    /* MÀU CHO CỘT NỘI DUNG BÊN PHẢI (DARK MODE - VẪN LÀ MÀU TỐI NỀN) */
+    --right-column-bg: #2c2c2c;
+
+    /* Màu sắc cho navbar trong chế độ tối */
+    --navbar-bg-color: #333;
+    --navbar-item-color: #e0e0e0;
+    --navbar-item-hover-color: #89cff0;
+    --navbar-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+
+    /* MÀU BANNER (DARK MODE) */
+    --banner-color-1: #2a526b;
+    --banner-color-2: #3d5a7d;
+    --banner-color-3: #526f8d;
+    --banner-color-4: #6a8ba7;
+}
+
+/* Các kiểu cơ bản cho body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container chính để giới hạn chiều rộng nội dung */
+.container {
+    max-width: 1300px; /* Chiều rộng tối đa tổng thể của CV */
+    margin: 20px auto; /* Căn giữa và tạo khoảng cách trên/dưới */
+    padding: 0 20px; /* Padding hai bên cho container */
+}
+
+/* --- Top Banner --- */
+.top-banner {
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    background-size: 400% 400%;
+    animation: gradientShift 5s ease infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% {
+        background: linear-gradient(90deg, var(--banner-color-1), var(--banner-color-2), var(--banner-color-3));
+        background-position: 0% 50%;
+    }
+    50% {
+        background: linear-gradient(90deg, var(--banner-color-2), var(--banner-color-3), var(--banner-color-4));
+        background-position: 100% 50%;
+    }
+    100% {
+        background: linear-gradient(90deg, var(--banner-color-3), var(--banner-color-4), var(--banner-color-1));
+        background-position: 0% 50%;
+    }
+}
+
+.top-banner h1 {
+    font-size: 3em;
+    margin: 0 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.top-banner .job-title {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+/* --- Main Navbar --- */
+.main-navbar-new {
+    background-color: var(--navbar-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--navbar-shadow);
+    padding: 15px 0;
+    position: sticky; /* Giữ navbar dính khi cuộn */
+    top: 0;
+    z-index: 100; /* Đảm bảo navbar nằm trên nội dung cuộn */
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-item-new {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--navbar-item-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item-new:hover,
+.nav-item-new.active {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.nav-item-new i {
+    font-size: 1.1em;
+}
+
+/* --- Nút chuyển đổi chế độ sáng/tối --- */
+.dark-mode-toggle {
+    position: fixed; /* Vẫn giữ cố định vì nó không liên quan đến bố cục chính */
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.3em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001; /* Rất cao để luôn nằm trên cùng */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.dark-mode-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Bố cục hai cột (Flexbox) */
+.two-column-layout {
+    display: flex; /* Kích hoạt flexbox */
+    gap: 30px; /* Khoảng cách giữa hai cột */
+    padding: 20px; /* Padding bên trong khối hai cột */
+    background-color: var(--card-background); /* Nền cho toàn bộ bố cục CV */
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    margin-top: 30px; /* Khoảng cách từ navbar xuống */
+}
+
+.left-column {
+    flex: 0 0 320px; /* Cột trái có chiều rộng cố định 320px */
+    padding: 25px;
+    background-color: var(--left-column-bg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+.right-column {
+    flex: 1; /* Cột phải chiếm toàn bộ không gian còn lại */
+    padding: 25px;
+    background-color: var(--right-column-bg);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Vách ngăn nét đứt cho các phần trong cột phải */
+.right-column .cv-section:not(:last-of-type) {
+    border-bottom: 1px dashed var(--divider-color);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+}
+
+/* Kiểu cho Avatar trong cột trái */
+.left-column .profile-summary-left {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.left-column .profile-image-circle {
+    width: 130px; /* Kích thước chiều rộng cố định */
+    height: 130px; /* Kích thước chiều cao cố định để tạo hình vuông */
+    margin: 0 auto 15px auto; /* Căn giữa và khoảng cách dưới */
+    border-radius: 50%; /* QUAN TRỌNG: Làm cho khung ảnh thành hình tròn */
+    overflow: hidden; /* QUAN TRỌNG: Cắt bỏ phần ảnh tràn ra ngoài hình tròn */
+    border: 3px solid var(--primary-color); /* Viền xung quanh ảnh, dùng màu primary */
+    box-shadow: 0 0 0 5px rgba(var(--primary-color-rgb-values), 0.3); /* Thêm hiệu ứng phát sáng nhẹ (glow) */
+    display: flex; /* Dùng flexbox để căn giữa ảnh bên trong */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    background-color: var(--card-background); /* Màu nền nếu ảnh load chậm hoặc có khoảng trống */
+}
+
+.left-column .profile-image-circle img {
+    width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
+    height: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều cao của khung */
+    object-fit: cover; /* QUAN TRỌNG: Cắt ảnh để lấp đầy khung mà không bị méo mó, giữ tỉ lệ ảnh */
+    display: block; /* Loại bỏ khoảng trắng dưới ảnh */
+}
+
+/* Vách ngăn trong cột trái */
+.left-column .cv-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--divider-color);
+}
+
+.left-column .cv-section:first-of-type {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+
+/* Các kiểu chung cho tiêu đề section */
+h2 {
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Các kiểu chung cho tiêu đề h3 trong left column */
+.left-column h3 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.section-icon { color: var(--secondary-color); }
+.about-me-text p { margin-bottom: 15px; text-align: justify; }
+
+/* Career Goal - Đã khôi phục khung */
+.goals-list {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các thẻ mục tiêu xuống dòng */
+    gap: 20px; /* Khoảng cách giữa các thẻ mục tiêu */
+    justify-content: space-between; /* Căn đều các thẻ */
+}
+
+.goal-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: var(--box-shadow);
+    flex: 1 1 calc(50% - 10px); /* Chia thành 2 cột, trừ đi gap */
+    min-width: 280px; /* Đảm bảo không quá nhỏ khi có nhiều mục tiêu */
+    box-sizing: border-box; /* Tính padding và border vào chiều rộng */
+}
+
+.goal-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.15em;
+}
+
+.goal-card ul {
+    list-style: disc; /* Sử dụng bullet points */
+    padding-left: 20px;
+    margin: 0;
+}
+
+.goal-card li {
+    margin-bottom: 8px;
+}
+
+/* Personal Details - Cập nhật cho icon */
+.personal-details-left ul {
+    list-style: none; /* Bỏ dấu chấm mặc định của list */
+    padding: 0;
+}
+
+.personal-details-left li {
+    margin-bottom: 10px; /* Khoảng cách giữa các mục */
+    display: flex; /* Dùng flexbox để căn chỉnh icon và text */
+    align-items: flex-start; /* Căn chỉnh các item theo đỉnh nếu có nhiều dòng */
+    gap: 10px; /* Khoảng cách giữa icon và text */
+}
+
+.personal-details-left li strong {
+    color: var(--primary-color);
+    /* Bỏ margin-right: 5px; vì đã dùng gap */
+}
+
+/* Thêm icon trực tiếp vào HTML cho tiện, và dùng CSS để định kiểu */
+/* Các icon sẽ được thêm vào trong thẻ <li> ở HTML */
+.personal-details-left li i {
+    color: var(--secondary-color); /* Màu icon */
+    font-size: 1.1em; /* Kích thước icon */
+    width: 20px; /* Đảm bảo icon có độ rộng cố định để căn chỉnh đều */
+    text-align: center;
+}
+
+
+/* Skills */
+.skills-category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.skill-category-card { background-color: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: var(--box-shadow); }
+.skill-category-card h3 { color: var(--primary-color); margin-top: 0; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag { background-color: #e0f2f7; color: #007bff; padding: 6px 12px; border-radius: 15px; font-size: 0.85em; font-weight: bold; }
+body.dark-mode .skill-tag { background-color: #003366; color: #89cff0; }
+
+.tool-icons { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px; }
+.tool-item { display: flex; align-items: center; gap: 8px; background-color: var(--card-background); border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 5px; font-size: 0.9em; color: var(--text-color); }
+.tool-item i { color: var(--primary-color); font-size: 1.1em; }
+
+/* Experience - (Đã bị loại bỏ trong HTML) */
+/* .timeline { position: relative; padding-left: 30px; }
+.timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background-color: var(--border-color); }
+.timeline-item { position: relative; margin-bottom: 25px; padding-left: 25px; }
+.timeline-dot { position: absolute; left: 0; top: 5px; width: 20px; height: 20px; background-color: var(--primary-color); border-radius: 50%; border: 3px solid var(--card-background); z-index: 1; }
+.timeline-content h3 { margin-top: 0; color: var(--primary-color); font-size: 1.2em; }
+.company-name { font-style: italic; color: var(--text-color); margin-bottom: 5px; }
+.duration { font-size: 0.9em; color: #777; margin-bottom: 10px; display: block; }
+.duration i { margin-right: 5px; }
+.timeline-content ul { list-style: disc; padding-left: 20px; } */
+
+/* Education */
+.education-card { background-color: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: var(--box-shadow); }
+.education-card h3 { color: var(--primary-color); margin-top: 0; font-size: 1.3em; }
+.education-card .degree-info,
+.education-card .major-info {
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 5px;
+}
+.education-card .date {
+    font-size: 0.9em;
+    color: #777;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.education-card .date i {
+    color: var(--primary-color);
+}
+
+
+/* Projects */
+.project-cards-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.project-card { background-color: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; box-shadow: var(--box-shadow); display: flex; flex-direction: column; }
+.project-card h3 { color: var(--primary-color); margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+.project-description { font-size: 0.95em; color: var(--text-color); flex-grow: 1; margin-bottom: 15px; }
+.project-tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; margin-bottom: 15px; }
+.tech-tag { background-color: #e0f2f7; color: #007bff; padding: 5px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+body.dark-mode .tech-tag { background-color: #003366; color: #89cff0; }
+.project-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-color); text-decoration: none; font-weight: bold; margin-top: auto; transition: color 0.3s ease; }
+.project-link:hover { color: var(--secondary-color); }
+.project-link.disabled-link { color: #999; cursor: not-allowed; }
+.project-link.disabled-link:hover { color: #999; }
+
+/* Interests */
+.interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; text-align: center; }
+.interest-item { text-decoration: none; color: var(--text-color); background-color: var(--card-background); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px 10px; transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.interest-item:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); }
+.interest-item i { font-size: 2.2em; color: var(--primary-color); }
+.interest-item p { margin: 0; font-weight: bold; }
+
+/* Contact (Đã được chuyển vào cột trái trong HTML) */
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+    text-decoration: none;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.contact-item:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.contact-item i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.contact-item:hover i {
+    color: #fff;
+}
+
+/* Footer (Nằm trong .container, bên dưới .two-column-layout) */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    font-size: 0.9em;
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .top-banner {
+        padding: 40px 15px;
+    }
+
+    .top-banner h1 {
+        font-size: 2.2em;
+    }
+
+    .top-banner .job-title {
+        font-size: 1.2em;
+    }
+
+    .main-navbar-new .navbar-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-item-new {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    /* Bố cục hai cột chuyển thành một cột trên màn hình nhỏ */
+    .two-column-layout {
+        flex-direction: column; /* Xếp chồng các cột */
+        gap: 20px; /* Khoảng cách giữa các khối khi xếp chồng */
+        padding: 20px; /* Điều chỉnh padding */
+        margin-top: 20px; /* Điều chỉnh margin */
+    }
+
+    .left-column,
+    .right-column {
+        flex: auto; /* Cho phép cột co giãn tự động */
+        padding: 20px; /* Điều chỉnh padding nội bộ */
+    }
+
+    .right-column .cv-section:not(:last-of-type) {
+        padding-bottom: 25px;
+        margin-bottom: 25px;
+    }
+
+    .goals-list {
+        flex-direction: column; /* Các thẻ mục tiêu xếp chồng lên nhau trên màn hình nhỏ */
+        gap: 15px;
+    }
+
+    .goal-card {
+        flex-basis: 100%; /* Chiếm toàn bộ chiều rộng */
+    }
+
+    .skills-category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-cards-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .top-banner {
+        padding: 30px 10px;
+    }
+
+    .top-banner h1 {
+        font-size: 1.8em;
+    }
+
+    .top-banner .job-title {
+        font-size: 1em;
+    }
+
+    .main-navbar-new .navbar-container {
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .nav-item-new {
+        padding: 5px 10px;
+        font-size: 0.8em;
+        gap: 5px;
+    }
+
+    .container {
+        padding: 0 10px; /* Giảm padding cho container */
+        margin: 10px auto; /* Giảm margin cho container */
+    }
+
+    .two-column-layout {
+        padding: 15px; /* Giảm padding cho bố cục hai cột */
+    }
+
+    .left-column,
+    .right-column {
+        padding: 15px; /* Giảm padding nội bộ của cột */
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .left-column h3 {
+        font-size: 1.1em; /* Giảm kích thước h3 trong cột trái */
+    }
+
+    /* Ẩn các icon trong nav bar trên mobile nếu cần gọn hơn */
+    .nav-item-new i {
+        font-size: 0.9em; /* Hoặc display: none; */
+    }
+}
