@@ -1,0 +1,996 @@
+
+/* RESET & GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f7fa;
+  color: #333;
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.3s;
+}
+
+ul {
+  list-style: none;
+}
+
+/* BANNER */
+.banner {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.banner h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+.banner p {
+  font-size: 1.2em;
+  opacity: 0.9;
+}
+
+/* NAVIGATION BAR */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  color: #333;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #f1f3f5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* LAYOUT */
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 30px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left-column {
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+}
+
+.right-column {
+  flex: 2.5;
+  min-width: 500px;
+}
+
+/* CARD COMPONENTS */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  animation: fadeInUp 0.6s ease-in-out both;
+}
+
+.card h2 {
+  color: #5a67d8;
+  font-size: 1.5em;
+  margin-bottom: 12px;
+  border-left: 5px solid #5a67d8;
+  padding-left: 10px;
+}
+
+.card h3 {
+  color: #444;
+  font-size: 1.1em;
+  margin: 20px 0 10px;
+}
+
+.card ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.card li {
+  margin-bottom: 10px;
+  list-style-type: disc;
+}
+
+/* Khung ảnh đại diện */
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+/* PROJECTS */
+.project-item {
+  border-left: 5px solid #7f9cf5;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.project-item h3 {
+  font-size: 1.2em;
+  color: #2d3748;
+}
+
+/* FOOTER */
+.footer {
+  background: #5a67d8;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 50px;
+}
+
+.social-links a {
+  margin: 0 10px;
+  color: white;
+  font-size: 1.1em;
+}
+
+.social-links a:hover {
+  color: #e2e8f0;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.hobby-grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.hobby-box {
+  flex: 1;
+  min-width: 120px;
+  text-align: center;
+  background-color: #ffeaa7;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #2d3436;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-box:hover {
+  background-color: #fab1a0;
+  transform: translateY(-3px);
+}
+
+
+/* Component Shadow Card 0 */
+.shadow-card-0 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-0:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 1 */
+.shadow-card-1 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 2 */
+.shadow-card-2 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-2:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 3 */
+.shadow-card-3 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-3:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 4 */
+.shadow-card-4 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-4:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 5 */
+.shadow-card-5 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-5:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 6 */
+.shadow-card-6 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-6:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 7 */
+.shadow-card-7 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-7:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 8 */
+.shadow-card-8 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-8:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 9 */
+.shadow-card-9 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-9:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 10 */
+.shadow-card-10 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-10:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 11 */
+.shadow-card-11 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-11:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 12 */
+.shadow-card-12 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-12:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 13 */
+.shadow-card-13 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-13:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 14 */
+.shadow-card-14 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-14:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 15 */
+.shadow-card-15 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-15:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 16 */
+.shadow-card-16 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-16:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 17 */
+.shadow-card-17 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-17:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 18 */
+.shadow-card-18 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-18:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 19 */
+.shadow-card-19 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-19:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 20 */
+.shadow-card-20 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-20:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 21 */
+.shadow-card-21 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-21:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 22 */
+.shadow-card-22 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-22:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 23 */
+.shadow-card-23 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-23:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 24 */
+.shadow-card-24 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-24:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 25 */
+.shadow-card-25 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-25:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 26 */
+.shadow-card-26 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-26:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 27 */
+.shadow-card-27 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-27:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 28 */
+.shadow-card-28 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-28:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 29 */
+.shadow-card-29 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-29:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 30 */
+.shadow-card-30 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-30:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 31 */
+.shadow-card-31 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-31:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 32 */
+.shadow-card-32 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-32:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 33 */
+.shadow-card-33 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-33:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 34 */
+.shadow-card-34 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-34:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 35 */
+.shadow-card-35 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-35:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 36 */
+.shadow-card-36 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-36:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 37 */
+.shadow-card-37 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-37:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 38 */
+.shadow-card-38 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-38:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 39 */
+.shadow-card-39 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-39:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 40 */
+.shadow-card-40 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-40:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 41 */
+.shadow-card-41 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-41:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 42 */
+.shadow-card-42 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-42:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 43 */
+.shadow-card-43 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-43:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 44 */
+.shadow-card-44 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-44:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 45 */
+.shadow-card-45 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-45:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 46 */
+.shadow-card-46 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 11px;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-46:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 11px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 47 */
+.shadow-card-47 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-47:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 48 */
+.shadow-card-48 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-48:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 13px rgba(0,0,0,0.2);
+}
+
+/* Component Shadow Card 49 */
+.shadow-card-49 {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease-in-out;
+}
+.shadow-card-49:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.2);
+}
+/* ============================
+   9. DARK MODE STYLES
+   ============================ */
+body.dark-mode {
+  background: #1a1b2e;
+  color: #e4e4e4;
+}
+
+/* Định dạng các cột trong chế độ tối */
+.dark-mode .left-column,
+.dark-mode .right-column {
+  background: #242640;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Tiêu đề trong chế độ tối */
+.dark-mode .section h2 {
+  color: #a363d9;
+  border-bottom-color: #363b65;
+}
+
+/* Mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item {
+  border-left-color: #a363d9;
+}
+
+/* Tiêu đề mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item h3 {
+  color: #e4e4e4;
+}
+
+/* Ngày tháng trong chế độ tối */
+.dark-mode .date {
+  color: #b4b4b4;
+}
+
+/* Vị trí công việc trong chế độ tối */
+.dark-mode .position {
+  color: #a363d9;
+}
+
+/* Tên kỹ năng trong chế độ tối */
+.dark-mode .skill-name {
+  color: #e4e4e4;
+}
+
+/* Các mục trong chế độ tối */
+.dark-mode .software-item,
+.dark-mode .award-item,
+.dark-mode .interest-item,
+.dark-mode .reference {
+  background: #1a1b2e;
+  border: 1px solid #363b65;
+}
+
+/* Hiệu ứng hover cho các mục trong chế độ tối */
+.dark-mode .software-item:hover,
+.dark-mode .award-item:hover,
+.dark-mode .interest-item:hover {
+  background: #2a2b45;
+}
+
+/* Biểu tượng trong chế độ tối */
+.dark-mode .software-item i,
+.dark-mode .interest-item i {
+  color: #a363d9;
+}
+
+/* Dấu chấm tròn trong chế độ tối */
+.dark-mode .activity-item::before {
+  background: #a363d9;
+}
+
+/* Liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hiệu ứng hover cho liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  background-position: right center;
+}
+
+/* ===== NÚT CHUYỂN ĐỔI SÁNG/TỐI ===== */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(85, 83, 83, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    background: #4834d4;
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle i {
+    color: white;
+}
+
+/* Nút trong chế độ tối */
+body.dark-mode .dark-mode-toggle {
+    background: #7c4dff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: #6c5ce7;
+}
