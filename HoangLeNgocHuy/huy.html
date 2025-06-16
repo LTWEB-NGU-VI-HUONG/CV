@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Hoàng Lê Ngọc Huy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="huy.css">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+  <button id="darkModeToggle" class="dark-mode-toggle">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- === PHẦN BANNER - THÔNG TIN CƠ BẢN === -->
+  <div class="banner">
+    <div class="profile-container">
+      <h1>Hoàng Lê Ngọc Huy</h1>
+      <div class="job-title">Web Developer</div>
+    </div>
+  </div>
+
+  <!-- === PHẦN NAVIGATION - MENU ĐIỀU HƯỚNG === -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../home.html" class="nav-link" title="Về trang chủ">
+        <i class="fas fa-home"></i>
+        <span>Trang chủ</span>
+      </a>
+      <a href="#about" class="nav-link" onclick="scrollToSection('about')" title="Thông tin giới thiệu">
+        <i class="fas fa-user"></i>
+        <span>Giới thiệu</span>
+      </a>
+      <a href="#skills" class="nav-link" onclick="scrollToSection('skills')" title="Các kỹ năng">
+        <i class="fas fa-tools"></i>
+        <span>Kỹ năng</span>
+      </a>
+      <a href="#education" class="nav-link" onclick="scrollToSection('education')" title="Thông tin học vấn">
+        <i class="fas fa-graduation-cap"></i>
+        <span>Học vấn</span>
+      </a>
+      <a href="#projects" class="nav-link" onclick="scrollToSection('projects')" title="Các dự án">
+        <i class="fas fa-project-diagram"></i>
+        <span>Dự án</span>
+      </a>
+      <a href="#contact" class="nav-link" onclick="scrollToSection('contact')" title="Thông tin liên hệ">
+        <i class="fas fa-envelope"></i>
+        <span>Liên hệ</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- === PHẦN NỘI DUNG CHÍNH === -->
+  <div class="main-content">
+    <!-- === CỘT TRÁI - THÔNG TIN CÁ NHÂN (30%) === -->
+    <div class="left-column">
+      <!-- Ảnh đại diện và thông tin liên hệ -->
+      <div class="profile-avatar-container">
+        <div class="profile-avatar">
+          <img src="../imgs/huy.png" alt="Profile Picture" id="profile-image">
+        </div>
+      </div>
+
+      <!-- Thông tin cá nhân: địa chỉ, email, SĐT, ngày sinh -->
+      <section  class="section">
+        <h2><i class="fas fa-user"></i>Thông tin cá nhân</h2>
+        <ul class="info-list">
+          <li><i class="fas fa-id-card"></i>Họ và tên: Hoàng Lê Ngọc Huy</li>
+          <li><i class="fas fa-map-marker-alt"></i>Địa chỉ: 19/1Q Nguyễn Hữu Cầu, Trung Chánh, Hóc Môn, Tp HCM</li>
+          <li><i class="fas fa-envelope"></i>Email: huyhln4655@ut.edu.vn</li>
+          <li><i class="fas fa-phone"></i>SĐT: 0967573010</li>
+          <li><i class="fas fa-birthday-cake"></i>Ngày sinh: 14/11/2005</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- === CỘT PHẢI - THÔNG TIN CHUYÊN MÔN (70%) === -->
+    <div class="right-column">
+      <!-- Giới thiệu bản thân -->
+      <section  class="section">
+        <h2><i id="about" class="fas fa-user-circle"></i>Giới thiệu bản thân</h2>
+        <p>
+          Tôi là một sinh viên đam mê công nghệ và phát triển web, luôn nỗ lực học hỏi để trở thành một Web Developer chuyên nghiệp. Tôi có nền tảng kiến thức vững chắc về cả front-end và back-end, cùng với kinh nghiệm thực tế qua các dự án cá nhân và thực tập tại các công ty công nghệ.<br>
+          Tôi không ngừng cập nhật các công nghệ mới như React, Node.js và luôn chủ động trau dồi kỹ năng tiếng Anh để phục vụ cho việc học tập và làm việc trong môi trường quốc tế.<br>
+          Tôi mong muốn được tham gia vào các dự án lớn, đóng góp vào sự phát triển của công ty, đồng thời chia sẻ kiến thức, kinh nghiệm với cộng đồng lập trình viên thông qua blog và các buổi chia sẻ.
+        </p>
+      </section>
+
+      <!-- Kỹ năng chuyên môn: Front-end, Back-end, Ngôn ngữ -->
+      <section id="skills" class="section">
+        <h2><i class="fas fa-laptop-code"></i>Kỹ năng chuyên môn & Công cụ phát triển</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><i class="fas fa-code"></i> Front-end Development</h3>
+            <div class="skills-container">
+              <div class="skill-item">
+                <i class="fab fa-html5"></i>
+                <div class="skill-name">HTML5</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-css3-alt"></i>
+                <div class="skill-name">CSS3</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-js"></i>
+                <div class="skill-name">JavaScript</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fas fa-database"></i> Back-end Development</h3>
+            <div class="skills-container">
+              <div class="skill-item">
+                <i class="fab fa-php"></i>
+                <div class="skill-name">PHP</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-python"></i>
+                <div class="skill-name">Python</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-java"></i>
+                <div class="skill-name">Java</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-category">
+            <h3><i class="fas fa-tools"></i> Công cụ phát triển</h3>
+            <div class="skills-container">
+              <div class="skill-item">
+                <i class="fab fa-github"></i>
+                <div class="skill-name">GitHub</div>
+              </div>
+              <div class="skill-item">
+                <i class="fas fa-code-branch"></i>
+                <div class="skill-name">VS Code</div>
+              </div>
+              <div class="skill-item">
+                <i class="fab fa-figma"></i>
+                <div class="skill-name">Figma</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Thông tin học vấn và chuyên ngành -->
+      <section id="education" class="section">
+        <h2><i class="fas fa-graduation-cap"></i>Học vấn</h2>
+        <div class="experience-item">
+          <h3>TRƯỜNG ĐẠI HỌC GIAO THÔNG VẬN TẢI THÀNH PHỐ HỒ CHÍ MINH</h3>
+          <div class="date"><i class="fas fa-calendar-alt"></i>2023 - Hiện tại</div>
+          <p>Khoa: Viện Công nghệ thông tin và Điện, điện tử</p>
+          <p>Ngành: Công nghệ thông tin</p>
+          <p>Chuyên ngành: Công nghệ thông tin</p>
+          <p>Lớp: CN2302E</p>
+        </div>
+      </section>
+
+      <!-- Các dự án đã thực hiện -->
+      <section id="projects" class="section">
+        <h2><i class="fas fa-project-diagram"></i>Dự án & Hoạt động</h2>
+        <div class="activities">
+          <div class="activity-item">
+            <em>Chưa có</em>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <h2><i class="fas fa-project-diagram"></i>Chứng chỉ & Giải thưởng</h2>
+        <div class="activities">
+          <div class="activity-item">
+            <em>Chưa có</em>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sở thích và hoạt động ngoại khóa -->
+      <section class="section">
+        <h2><i class="fas fa-heartbeat"></i>Sở thích</h2>
+        <div class="interests-container">
+          <div class="interest-item game"><i class="fa fa-gamepad"></i>Chơi game</div>
+          <div class="interest-item music"><i class="fa fa-music"></i>Nghe nhạc</div>
+          <div class="interest-item travel"><i class="fa fa-motorcycle"></i>Đi phượt</div>
+        </div>
+      </section>
+
+      <!-- Liên hệ -->
+      <section id="contact" class="section">
+        <h2><i class="fas fa-paper-plane"></i>Liên hệ</h2>
+        <div class="social-links">
+          <a href="mailto:hoanglengochuy98@gmail.com" class="social-link email">
+            <i class="fas fa-envelope"></i>
+            Email
+          </a>
+          <a href="https://github.com/hlnhuy" class="social-link github" target="_blank">
+            <ion-icon name="logo-github"></ion-icon> GitHub
+          </a>
+          <a href="https://www.facebook.com/hoang.huy.656702" class="social-link facebook" target="_blank">
+            <i class="fab fa-facebook-messenger"></i>
+            Facebook
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- === PHẦN JAVASCRIPT === -->
+  <script src="huy.js"></script>
+</body>
+</html>

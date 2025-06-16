@@ -994,3 +994,21 @@ body.dark-mode .dark-mode-toggle {
 body.dark-mode .dark-mode-toggle:hover {
     background: #6c5ce7;
 }
+/* Cải thiện hiển thị chữ trong dark mode */
+.dark-mode .card {
+  background-color: #1f2233;
+  color: #f1f1f1;
+}
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode li {
+  color: #f1f1f1;
+}
+.dark-mode .card {
+  background: #1f2233;
+  color: #f1f1f1;
+}
+.dark-mode h2, .dark-mode h3, .dark-mode p, .dark-mode li {
+  color: #f1f1f1;
+}

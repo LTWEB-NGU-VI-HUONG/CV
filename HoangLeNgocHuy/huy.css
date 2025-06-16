@@ -1,0 +1,2332 @@
+/* ============================
+   1. RESET VÀ STYLE CƠ BẢN
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #f8f3ff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Ẩn thanh kéo ngang toàn trang và đảm bảo không tràn ngang */
+html, body {
+  overflow-x: hidden;
+}
+
+.main-content {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  overflow-x: hidden; /* Ngăn tràn ngang ở main-content */
+}
+
+.right-column {
+  flex: 4 0 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  min-width: 0;
+  overflow-x: visible; /* Không cho cuộn ngang ở cột phải */
+}
+
+/* Đảm bảo các thành phần con không vượt quá khung */
+.right-column img,
+.right-column table,
+.right-column pre,
+.right-column code {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* ============================
+   2. ANIMATIONS VÀ KEYFRAMES
+   ============================ */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.banner {
+  background: linear-gradient(-45deg, #2196f3, #42a5f5, #7c4dff, #5e35b1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 16px 20px;   /* Giảm từ 30px 20px xuống 16px 20px */
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url() no-repeat bottom;
+  opacity: 0.1;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Profile avatar container in left column */
+.profile-avatar-container {
+  margin: 20px auto 30px; /* Đổi từ margin: -50px auto 30px; thành margin dương */
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Khung ảnh đại diện */
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho ảnh */
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Ảnh đại diện */
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Dark mode styles for profile avatar */
+.dark-mode .profile-avatar {
+  border-color: #2d2d2d;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* Responsive styles for profile avatar */
+@media (max-width: 768px) {
+  .profile-avatar-container {
+    margin-top: 20px;
+  }
+  
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Tiêu đề chính */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Chức danh nghề nghiệp */
+.job-title {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* ============================
+   5. LAYOUT CHÍNH
+   ============================ */
+.main-content {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px; /* Giảm khoảng cách giữa hai cột */
+}
+
+.left-column {
+  flex: 1.5 0 0%; /* Giảm từ 2 xuống 1.5 để nhỏ lại */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  width: auto;
+}
+
+.right-column {
+  flex: 4 0 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  min-width: 0;           /* Thêm dòng này để ngăn tràn ngang */
+  overflow-x: auto;       /* Nếu có bảng hoặc nội dung lớn, chỉ phần này mới cuộn ngang */
+}
+
+/* ============================
+   6. CỘT TRÁI - THÔNG TIN CÁ NHÂN
+   ============================ */
+.left-column {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start; /* Chỉ cao vừa đủ nội dung */
+  width: 30%;
+  /* Xóa hoặc không dùng: height, max-height, flex: 0 0 30%; */
+}
+
+/* ============================
+   7. CỘT PHẢI - THÔNG TIN CHUYÊN MÔN
+   ============================ */
+.right-column {
+  flex: 3 0 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  min-width: 0;           /* Thêm dòng này để ngăn tràn ngang */
+  overflow-x: auto;       /* Nếu có bảng hoặc nội dung lớn, chỉ phần này mới cuộn ngang */
+}
+
+/* ============================
+   8. COMPONENTS CHUNG
+   ============================ */
+/* ===== SECTION CHUNG ===== */
+.section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+/* Bỏ đường kẻ cho phần cuối cùng */
+.section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Tiêu đề các phần */
+.section h2 {
+  color: #6c5ce7;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+}
+
+/* Biểu tượng trong tiêu đề */
+.section h2 i {
+  color: #a363d9;
+  width: 24px;
+}
+
+/* Danh sách thông tin cá nhân */
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Các mục trong danh sách thông tin */
+.info-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+/* Biểu tượng trong danh sách thông tin */
+.info-list li i {
+  width: 20px;
+  color: #6c5ce7;
+  margin-right: 10px;
+}
+
+/* Loại bỏ dấu chấm mặc định của danh sách */
+.info-list li::before {
+  display: none;
+}
+
+/* Định dạng cho mục kinh nghiệm */
+.experience-item {
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+
+/* Loại bỏ margin cho mục kinh nghiệm cuối cùng */
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Tiêu đề của mục kinh nghiệm */
+.experience-item h3 {
+  color: #444;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+/* Định dạng cho ngày tháng */
+.date {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* Biểu tượng trong phần ngày tháng */
+.date i {
+  margin-right: 5px;
+  color: #6c5ce7;
+}
+
+/* Định dạng cho vị trí công việc */
+.position {
+  color: #6c5ce7;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Định dạng cho mục kỹ năng */
+.skill-item {
+  margin-bottom: 12px;
+}
+
+/* Tên kỹ năng */
+.skill-name {
+  margin-bottom: 5px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Danh sách phần mềm và công cụ */
+.software-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Định dạng cho từng mục phần mềm */
+.software-item {
+  background: linear-gradient(-45deg, #f8f3ff, #f0ebff, #e8e3ff, #f8f3ff);
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho mục phần mềm */
+.software-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Biểu tượng trong mục phần mềm */
+.software-item i {
+  color: #6c5ce7;
+  margin-right: 8px;
+}
+
+/* Phần hoạt động và dự án */
+.activities {
+  margin-top: 10px;
+  padding-left: 0; /* Xóa padding để không có dấu chấm */
+}
+
+/* Định dạng cho mục hoạt động */
+.activity-item {
+  list-style: none; /* Không hiển thị dấu chấm */
+  padding-left: 0;
+  margin-bottom: 8px;
+}
+
+/* Dấu chấm tròn trước mỗi mục hoạt động */
+.activity-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: #6c5ce7;
+  border-radius: 50%;
+}
+
+/* Phần giải thưởng */
+.awards {
+  margin-top: 15px;
+}
+
+/* Định dạng cho mục giải thưởng */
+.award-item {
+  background: #f8f3ff;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho mục giải thưởng */
+.award-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Loại bỏ margin cho mục giải thưởng cuối cùng */
+.award-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Phần sở thích */
+.interests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Định dạng cho mục sở thích */
+.interest-item {
+  background: rgba(33, 150, 243, 0.08); /* xanh dương nhạt, trong suốt */
+  border-radius: 16px;
+  padding: 10px 22px;
+  margin: 8px 10px 8px 0;
+  display: inline-block;
+  font-weight: 500;
+  color: #222;
+  box-shadow: 0 2px 8px 0 rgba(33, 150, 243, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Dark mode: đổi nền ô sở thích cho dịu mắt hơn */
+body.dark-mode .interest-item {
+  background: rgba(64, 196, 255, 0.15);
+  color: #f1eaff;
+  box-shadow: 0 2px 8px 0 rgba(64, 196, 255, 0.10);
+}
+
+/* Ba sở thích đặc biệt vẫn giữ icon màu đen */
+.interest-item.game i,
+.interest-item.music i,
+.interest-item.travel i {
+  color: #111 !important;
+}
+
+/* Phần tham khảo */
+.reference {
+  background: #f8f3ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Đoạn văn trong phần tham khảo */
+.reference p {
+  margin-bottom: 5px;
+}
+
+/* Loại bỏ margin cho đoạn văn cuối cùng */
+.reference p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================
+   9. DARK MODE STYLES
+   ============================ */
+body.dark-mode {
+  background: #1a1b2e;
+  color: #e4e4e4;
+}
+
+/* Định dạng các cột trong chế độ tối */
+.dark-mode .left-column,
+.dark-mode .right-column {
+  background: #242640;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Tiêu đề trong chế độ tối */
+.dark-mode .section h2 {
+  color: #a363d9;
+  border-bottom-color: #363b65;
+}
+
+/* Mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item {
+  border-left-color: #a363d9;
+}
+
+/* Tiêu đề mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item h3 {
+  color: #e4e4e4;
+}
+
+/* Ngày tháng trong chế độ tối */
+.dark-mode .date {
+  color: #b4b4b4;
+}
+
+/* Vị trí công việc trong chế độ tối */
+.dark-mode .position {
+  color: #a363d9;
+}
+
+/* Tên kỹ năng trong chế độ tối */
+.dark-mode .skill-name {
+  color: #e4e4e4;
+}
+
+/* Các mục trong chế độ tối */
+.dark-mode .software-item,
+.dark-mode .award-item,
+.dark-mode .interest-item,
+.dark-mode .reference {
+  background: #1a1b2e;
+  border: 1px solid #363b65;
+}
+
+/* Hiệu ứng hover cho các mục trong chế độ tối */
+.dark-mode .software-item:hover,
+.dark-mode .award-item:hover,
+.dark-mode .interest-item:hover {
+  background: #2a2b45;
+}
+
+/* Biểu tượng trong chế độ tối */
+.dark-mode .software-item i,
+.dark-mode .interest-item i {
+  color: #a363d9;
+}
+
+/* Dấu chấm tròn trong chế độ tối */
+.dark-mode .activity-item::before {
+  background: #a363d9;
+}
+
+/* Liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hiệu ứng hover cho liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  background-position: right center;
+}
+
+/* ===== NÚT CHUYỂN ĐỔI SÁNG/TỐI ===== */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    top: auto;
+    right: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(85, 83, 83, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    background: #4834d4;
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle i {
+    color: white;
+}
+
+/* Nút trong chế độ tối */
+body.dark-mode .dark-mode-toggle {
+    background: #7c4dff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: #6c5ce7;
+}
+
+/* ============================
+   10. RESPONSIVE DESIGN
+   ============================ */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .left-column,
+  .right-column {
+    flex: 0 0 100%;
+  }
+
+  .software-list {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .info-and-contact,
+  .skills-and-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column, .right-column {
+    padding: 20px;
+  }
+}
+
+/* ============================
+   11. PRINT STYLES
+   ============================ */
+@media print {
+  body {
+    background: white;
+  }
+
+  .main-content {
+    box-shadow: none;
+  }
+
+  .edit-image-btn,
+  .avatar-overlay {
+    display: none !important;
+  }
+}
+
+/* Đổi tất cả chữ về màu đen */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, td, th, div, .skill-name, .section h2, .position, .date, .info-list li, .award-item, .software-item, .interest-item, .social-link {
+  color: #111 !important;
+}
+
+/* Nếu có dark mode, bạn có thể bỏ hoặc chỉnh lại cho phù hợp */
+body.dark-mode {
+  color: #111 !important;
+}
+
+/* Phần liên kết mạng xã hội */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* Định dạng cho liên kết mạng xã hội */
+.social-link {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  background-size: 300% 300%;
+  animation: gradientBG 8s ease infinite;
+}
+
+/* Hiệu ứng hover cho liên kết mạng xã hội */
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.2);
+}
+
+/* Biểu tượng trong liên kết mạng xã hội */
+.social-link i {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Màu sắc cho từng loại liên kết */
+.social-link.github {
+  background: linear-gradient(-45deg, #333, #666, #444, #333);
+}
+
+.social-link.facebook {
+  background: linear-gradient(-45deg, #1877F2, #3b5998, #2851A3, #1877F2);
+}
+
+.social-link.instagram {
+  background: linear-gradient(-45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.email {
+  background: linear-gradient(-45deg, #EA4335, #DB4437, #d32f2f, #EA4335);
+}
+
+/* ============================
+   4. NAVBAR
+   ============================ */
+.navbar {
+    position: relative;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Style cho navbar khi sticky */
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.nav-link i {
+    font-size: 1.1em;
+    color: #6c5ce7;
+}
+
+.nav-link:hover {
+    color: #6c5ce7;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: #6c5ce7;
+    font-weight: 600;
+}
+
+/* Dark mode navbar */
+body.dark-mode .navbar {
+    background: rgba(26, 26, 46, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-link i {
+    color: #7c4dff;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #7c4dff;
+}
+
+body.dark-mode .nav-link.active {
+    color: #7c4dff;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+        gap: 20px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .nav-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .nav-link {
+        padding: 8px 12px;
+        white-space: nowrap;
+        font-size: 0.95em;
+    }
+}
+
+/* Grid layout cho thông tin và liên hệ */
+.info-and-contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Grid layout cho kỹ năng và công cụ */
+.skills-and-tools {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Định dạng cho danh sách mục tiêu nghề nghiệp */
+.career-goals {
+  list-style: none;
+  padding: 0;
+}
+
+/* Định dạng cho mục tiêu chính */
+.career-goals > li {
+  margin-bottom: 20px;
+}
+
+/* Định dạng cho tiêu đề mục tiêu */
+.career-goals > li > strong {
+  display: block;
+  color: #6c5ce7;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/* Danh sách mục tiêu con */
+.career-goals ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+/* Định dạng cho từng mục tiêu con */
+.career-goals ul li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Skill Category */
+.skill-category {
+  background: #f8f3ff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Skill Category - Bỏ khung màu tím nhạt */
+.skill-category {
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 20px;
+}
+
+.skill-category h3 {
+  color: #6c5ce7;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-category h3 i {
+  color: #a363d9;
+}
+
+/* Skills Container */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+/* Individual Skill Item */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Nếu muốn bỏ luôn nền trắng của từng skill-item */
+.skill-item {
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
+}
+
+/* Skill Icon */
+.skill-item i {
+  font-size: 1.5em;
+  width: 24px;
+  text-align: center;
+}
+
+/* Skill Name */
+.skill-name {
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+/* Làm chữ label kỹ năng đậm và màu đen */
+.skill-item .skill-name {
+  color: #111 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+}
+
+/* Đổi màu các icon kỹ năng cho dễ nhìn hơn */
+.skill-item .fa-html5 { color: #ff5722; }      /* Cam đậm */
+.skill-item .fa-css3-alt { color: #2196f3; }   /* Xanh dương */
+.skill-item .fa-js { color: #ffc107; }         /* Vàng */
+.skill-item .fa-php { color: #6e4fa3; }        /* Tím đậm */
+.skill-item .fa-react { color: #00e5ff; }      /* Xanh cyan */
+.skill-item .fa-python { color: #4caf50; }     /* Xanh lá */
+.skill-item .fa-node-js { color: #8bc34a; }    /* Xanh lá nhạt */
+
+/* Để chữ và icon phần kỹ năng về màu mặc định */
+.skill-item,
+.skill-item i,
+.skill-item .skill-name {
+  color: inherit !important;
+}
+
+/* Nếu có các dòng đổi màu icon kỹ năng, hãy xóa hoặc ghi đè lại */
+.skill-item .fa-html5,
+.skill-item .fa-css3-alt,
+.skill-item .fa-js,
+.skill-item .fa-php,
+.skill-item .fa-react,
+.skill-item .fa-python,
+.skill-item .fa-node-js {
+  color: inherit !important;
+}
+
+/* Dark mode: vẫn giữ màu mặc định cho phần kỹ năng */
+body.dark-mode .skill-item,
+body.dark-mode .skill-item i,
+body.dark-mode .skill-item .skill-name {
+  color: inherit !important;
+}
+body.dark-mode .skill-item .fa-html5,
+body.dark-mode .skill-item .fa-css3-alt,
+body.dark-mode .skill-item .fa-js,
+body.dark-mode .skill-item .fa-php,
+body.dark-mode .skill-item .fa-react,
+body.dark-mode .skill-item .fa-python,
+body.dark-mode .skill-item .fa-node-js {
+  color: inherit !important;
+}
+
+/* Dark Mode Styles */
+.dark-mode .skill-category {
+  background: #2d2d2d;
+}
+
+.dark-mode .skill-item {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skill-category:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skill-item {
+    padding: 10px;
+  }
+  
+  .skill-item i {
+    font-size: 1.2em;
+  }
+  
+  .skill-name {
+    font-size: 0.9em;
+  }
+}
+
+/* Add smooth scrolling to the whole page */ 
+
+.interests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.interests-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #222; /* Đổi màu chữ thành đen */
+}
+
+/* Bỏ khung phần Ngôn ngữ */
+.skill-category:last-child .skill-item {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Chữ và icon dễ nhìn hơn ở chế độ tối */
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a,
+body.dark-mode li,
+body.dark-mode td,
+body.dark-mode th,
+body.dark-mode div,
+body.dark-mode .skill-name,
+body.dark-mode .section h2,
+body.dark-mode .position,
+body.dark-mode .date,
+body.dark-mode .info-list li,
+body.dark-mode .award-item,
+body.dark-mode .software-item,
+body.dark-mode .interest-item,
+body.dark-mode .social-link {
+  color: #f1eaff !important; /* Màu chữ sáng hơn trên nền tối */
+}
+
+/* Tiêu đề section và icon trong tiêu đề ở dark mode */
+body.dark-mode .section h2,
+body.dark-mode .section h2 i {
+  color: #7c4dff !important;
+}
+
+/* Icon kỹ năng ở dark mode */
+body.dark-mode .skill-item .fa-html5 { color: #ff8a50; }
+body.dark-mode .skill-item .fa-css3-alt { color: #40c4ff; }
+body.dark-mode .skill-item .fa-js { color: #ffe082; }
+body.dark-mode .skill-item .fa-php { color: #b39ddb; }
+body.dark-mode .skill-item .fa-react { color: #18ffff; }
+body.dark-mode .skill-item .fa-python { color: #81c784; }
+body.dark-mode .skill-item .fa-node-js { color: #aed581; }
+
+/* Icon trong phần sở thích ở dark mode */
+body.dark-mode .interest-item i {
+  color: #7c4dff !important;
+}
+
+/* Icon trong info-list ở dark mode */
+body.dark-mode .info-list li i {
+  color: #7c4dff !important;
+}
+
+/* Icon trong nav-link ở dark mode */
+body.dark-mode .nav-link i {
+  color: #7c4dff !important;
+}
+
+/* Tất cả icon đều màu xanh dương nhạt, trừ icon trong social-link email, github, facebook */
+i,
+[class^="fa-"],
+[class*=" fa-"] {
+  color: #40c4ff !important;
+}
+
+/* Giữ màu mặc định cho icon facebook, github, email trong social-link */
+.social-link.facebook i,
+.social-link.github i,
+.social-link.email i {
+  color: inherit !important;
+}
+
+/* Dark mode: giữ nguyên logic trên */
+body.dark-mode i,
+body.dark-mode [class^="fa-"],
+body.dark-mode [class*=" fa-"] {
+  color: #40c4ff !important;
+}
+
+body.dark-mode .social-link.facebook i,
+body.dark-mode .social-link.github i,
+body.dark-mode .social-link.email i {
+  color: inherit !important;
+}
+
+/* Đổi icon của các sở thích "Chơi game", "Nghe nhạc", "Đi phượt" thành màu đen */
+.interest-item.game i,
+.interest-item.music i,
+.interest-item.travel i {
+  color: #111 !important;
+}
+
+/* Dark mode: vẫn để icon các sở thích này màu đen */
+body.dark-mode .interest-item.game i,
+body.dark-mode .interest-item.music i,
+body.dark-mode .interest-item.travel i {
+  color: #111 !important;
+}
+
+/* ============================
+   1. RESET VÀ STYLE CƠ BẢN
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background: #f8f3ff;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Ẩn thanh kéo ngang toàn trang và đảm bảo không tràn ngang */
+html, body {
+  overflow-x: hidden;
+}
+
+.main-content {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px;
+  overflow-x: hidden; /* Ngăn tràn ngang ở main-content */
+}
+
+.right-column {
+  flex: 4 0 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  min-width: 0;
+  overflow-x: visible; /* Không cho cuộn ngang ở cột phải */
+}
+
+/* Đảm bảo các thành phần con không vượt quá khung */
+.right-column img,
+.right-column table,
+.right-column pre,
+.right-column code {
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* ============================
+   2. ANIMATIONS VÀ KEYFRAMES
+   ============================ */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.banner {
+  background: linear-gradient(-45deg, #2196f3, #42a5f5, #7c4dff, #5e35b1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  padding: 16px 20px;   /* Giảm từ 30px 20px xuống 16px 20px */
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url() no-repeat bottom;
+  opacity: 0.1;
+}
+
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Profile avatar container in left column */
+.profile-avatar-container {
+  margin: 20px auto 30px; /* Đổi từ margin: -50px auto 30px; thành margin dương */
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Khung ảnh đại diện */
+.profile-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho ảnh */
+.profile-avatar:hover {
+  transform: scale(1.05);
+}
+
+/* Ảnh đại diện */
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Dark mode styles for profile avatar */
+.dark-mode .profile-avatar {
+  border-color: #2d2d2d;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* Responsive styles for profile avatar */
+@media (max-width: 768px) {
+  .profile-avatar-container {
+    margin-top: 20px;
+  }
+  
+  .profile-avatar {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Tiêu đề chính */
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Chức danh nghề nghiệp */
+.job-title {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* ============================
+   5. LAYOUT CHÍNH
+   ============================ */
+.main-content {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 8px; /* Giảm khoảng cách giữa hai cột */
+}
+
+.left-column {
+  flex: 1.5 0 0%; /* Giảm từ 2 xuống 1.5 để nhỏ lại */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  width: auto;
+}
+
+.right-column {
+  flex: 4 0 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  min-width: 0;           /* Thêm dòng này để ngăn tràn ngang */
+  overflow-x: auto;       /* Nếu có bảng hoặc nội dung lớn, chỉ phần này mới cuộn ngang */
+}
+
+/* ============================
+   6. CỘT TRÁI - THÔNG TIN CÁ NHÂN
+   ============================ */
+.left-column {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start; /* Chỉ cao vừa đủ nội dung */
+  width: 30%;
+  /* Xóa hoặc không dùng: height, max-height, flex: 0 0 30%; */
+}
+
+/* ============================
+   7. CỘT PHẢI - THÔNG TIN CHUYÊN MÔN
+   ============================ */
+.right-column {
+  flex: 3 0 0%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  padding: 18px;
+  min-width: 0;           /* Thêm dòng này để ngăn tràn ngang */
+  overflow-x: auto;       /* Nếu có bảng hoặc nội dung lớn, chỉ phần này mới cuộn ngang */
+}
+
+/* ============================
+   8. COMPONENTS CHUNG
+   ============================ */
+/* ===== SECTION CHUNG ===== */
+.section {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+/* Bỏ đường kẻ cho phần cuối cùng */
+.section:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+/* Tiêu đề các phần */
+.section h2 {
+  color: #6c5ce7;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2em;
+}
+
+/* Biểu tượng trong tiêu đề */
+.section h2 i {
+  color: #a363d9;
+  width: 24px;
+}
+
+/* Danh sách thông tin cá nhân */
+.info-list {
+  list-style: none;
+  padding: 0;
+}
+
+/* Các mục trong danh sách thông tin */
+.info-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-left: 0;
+}
+
+/* Biểu tượng trong danh sách thông tin */
+.info-list li i {
+  width: 20px;
+  color: #6c5ce7;
+  margin-right: 10px;
+}
+
+/* Loại bỏ dấu chấm mặc định của danh sách */
+.info-list li::before {
+  display: none;
+}
+
+/* Định dạng cho mục kinh nghiệm */
+.experience-item {
+  margin-bottom: 20px;
+  padding-left: 0;
+}
+
+/* Loại bỏ margin cho mục kinh nghiệm cuối cùng */
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Tiêu đề của mục kinh nghiệm */
+.experience-item h3 {
+  color: #444;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+}
+
+/* Định dạng cho ngày tháng */
+.date {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* Biểu tượng trong phần ngày tháng */
+.date i {
+  margin-right: 5px;
+  color: #6c5ce7;
+}
+
+/* Định dạng cho vị trí công việc */
+.position {
+  color: #6c5ce7;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Định dạng cho mục kỹ năng */
+.skill-item {
+  margin-bottom: 12px;
+}
+
+/* Tên kỹ năng */
+.skill-name {
+  margin-bottom: 5px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Danh sách phần mềm và công cụ */
+.software-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Định dạng cho từng mục phần mềm */
+.software-item {
+  background: linear-gradient(-45deg, #f8f3ff, #f0ebff, #e8e3ff, #f8f3ff);
+  padding: 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho mục phần mềm */
+.software-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Biểu tượng trong mục phần mềm */
+.software-item i {
+  color: #6c5ce7;
+  margin-right: 8px;
+}
+
+/* Phần hoạt động và dự án */
+.activities {
+  margin-top: 10px;
+  padding-left: 0; /* Xóa padding để không có dấu chấm */
+}
+
+/* Định dạng cho mục hoạt động */
+.activity-item {
+  list-style: none; /* Không hiển thị dấu chấm */
+  padding-left: 0;
+  margin-bottom: 8px;
+}
+
+/* Dấu chấm tròn trước mỗi mục hoạt động */
+.activity-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  background: #6c5ce7;
+  border-radius: 50%;
+}
+
+/* Phần giải thưởng */
+.awards {
+  margin-top: 15px;
+}
+
+/* Định dạng cho mục giải thưởng */
+.award-item {
+  background: #f8f3ff;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+/* Hiệu ứng hover cho mục giải thưởng */
+.award-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Loại bỏ margin cho mục giải thưởng cuối cùng */
+.award-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Phần sở thích */
+.interests {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Định dạng cho mục sở thích */
+.interest-item {
+  background: rgba(33, 150, 243, 0.08); /* xanh dương nhạt, trong suốt */
+  border-radius: 16px;
+  padding: 10px 22px;
+  margin: 8px 10px 8px 0;
+  display: inline-block;
+  font-weight: 500;
+  color: #222;
+  box-shadow: 0 2px 8px 0 rgba(33, 150, 243, 0.08);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Dark mode: đổi nền ô sở thích cho dịu mắt hơn */
+body.dark-mode .interest-item {
+  background: rgba(64, 196, 255, 0.15);
+  color: #f1eaff;
+  box-shadow: 0 2px 8px 0 rgba(64, 196, 255, 0.10);
+}
+
+/* Ba sở thích đặc biệt vẫn giữ icon màu đen */
+.interest-item.game i,
+.interest-item.music i,
+.interest-item.travel i {
+  color: #111 !important;
+}
+
+/* Phần tham khảo */
+.reference {
+  background: #f8f3ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+/* Đoạn văn trong phần tham khảo */
+.reference p {
+  margin-bottom: 5px;
+}
+
+/* Loại bỏ margin cho đoạn văn cuối cùng */
+.reference p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================
+   9. DARK MODE STYLES
+   ============================ */
+body.dark-mode {
+  background: #1a1b2e;
+  color: #e4e4e4;
+}
+
+/* Định dạng các cột trong chế độ tối */
+.dark-mode .left-column,
+.dark-mode .right-column {
+  background: #242640;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Tiêu đề trong chế độ tối */
+.dark-mode .section h2 {
+  color: #a363d9;
+  border-bottom-color: #363b65;
+}
+
+/* Mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item {
+  border-left-color: #a363d9;
+}
+
+/* Tiêu đề mục kinh nghiệm trong chế độ tối */
+.dark-mode .experience-item h3 {
+  color: #e4e4e4;
+}
+
+/* Ngày tháng trong chế độ tối */
+.dark-mode .date {
+  color: #b4b4b4;
+}
+
+/* Vị trí công việc trong chế độ tối */
+.dark-mode .position {
+  color: #a363d9;
+}
+
+/* Tên kỹ năng trong chế độ tối */
+.dark-mode .skill-name {
+  color: #e4e4e4;
+}
+
+/* Các mục trong chế độ tối */
+.dark-mode .software-item,
+.dark-mode .award-item,
+.dark-mode .interest-item,
+.dark-mode .reference {
+  background: #1a1b2e;
+  border: 1px solid #363b65;
+}
+
+/* Hiệu ứng hover cho các mục trong chế độ tối */
+.dark-mode .software-item:hover,
+.dark-mode .award-item:hover,
+.dark-mode .interest-item:hover {
+  background: #2a2b45;
+}
+
+/* Biểu tượng trong chế độ tối */
+.dark-mode .software-item i,
+.dark-mode .interest-item i {
+  color: #a363d9;
+}
+
+/* Dấu chấm tròn trong chế độ tối */
+.dark-mode .activity-item::before {
+  background: #a363d9;
+}
+
+/* Liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Hiệu ứng hover cho liên kết mạng xã hội trong chế độ tối */
+.dark-mode .social-link:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  background-position: right center;
+}
+
+/* ===== NÚT CHUYỂN ĐỔI SÁNG/TỐI ===== */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    top: auto;
+    right: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #6c5ce7;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(85, 83, 83, 0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    background: #4834d4;
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle i {
+    color: white;
+}
+
+/* Nút trong chế độ tối */
+body.dark-mode .dark-mode-toggle {
+    background: #7c4dff;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+    background: #6c5ce7;
+}
+
+/* ============================
+   10. RESPONSIVE DESIGN
+   ============================ */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .left-column,
+  .right-column {
+    flex: 0 0 100%;
+  }
+
+  .software-list {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .info-and-contact,
+  .skills-and-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .left-column, .right-column {
+    padding: 20px;
+  }
+}
+
+/* ============================
+   11. PRINT STYLES
+   ============================ */
+@media print {
+  body {
+    background: white;
+  }
+
+  .main-content {
+    box-shadow: none;
+  }
+
+  .edit-image-btn,
+  .avatar-overlay {
+    display: none !important;
+  }
+}
+
+/* Đổi tất cả chữ về màu đen */
+body,
+h1, h2, h3, h4, h5, h6,
+p, span, a, li, td, th, div, .skill-name, .section h2, .position, .date, .info-list li, .award-item, .software-item, .interest-item, .social-link {
+  color: #111 !important;
+}
+
+/* Nếu có dark mode, bạn có thể bỏ hoặc chỉnh lại cho phù hợp */
+body.dark-mode {
+  color: #111 !important;
+}
+
+/* Phần liên kết mạng xã hội */
+.social-links {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+/* Định dạng cho liên kết mạng xã hội */
+.social-link {
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+  background-size: 300% 300%;
+  animation: gradientBG 8s ease infinite;
+}
+
+/* Hiệu ứng hover cho liên kết mạng xã hội */
+.social-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.2);
+}
+
+/* Biểu tượng trong liên kết mạng xã hội */
+.social-link i {
+  margin-right: 8px;
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+/* Màu sắc cho từng loại liên kết */
+.social-link.github {
+  background: linear-gradient(-45deg, #333, #666, #444, #333);
+}
+
+.social-link.facebook {
+  background: linear-gradient(-45deg, #1877F2, #3b5998, #2851A3, #1877F2);
+}
+
+.social-link.instagram {
+  background: linear-gradient(-45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-link.email {
+  background: linear-gradient(-45deg, #EA4335, #DB4437, #d32f2f, #EA4335);
+}
+
+/* ============================
+   4. NAVBAR
+   ============================ */
+.navbar {
+    position: relative;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+}
+
+/* Style cho navbar khi sticky */
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.nav-link i {
+    font-size: 1.1em;
+    color: #6c5ce7;
+}
+
+.nav-link:hover {
+    color: #6c5ce7;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: #6c5ce7;
+    font-weight: 600;
+}
+
+/* Dark mode navbar */
+body.dark-mode .navbar {
+    background: rgba(26, 26, 46, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-link i {
+    color: #7c4dff;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #7c4dff;
+}
+
+body.dark-mode .nav-link.active {
+    color: #7c4dff;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 0;
+    }
+    
+    .nav-container {
+        padding: 0 15px;
+        gap: 20px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .nav-container::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+    .nav-link {
+        padding: 8px 12px;
+        white-space: nowrap;
+        font-size: 0.95em;
+    }
+}
+
+/* Grid layout cho thông tin và liên hệ */
+.info-and-contact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Grid layout cho kỹ năng và công cụ */
+.skills-and-tools {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Định dạng cho danh sách mục tiêu nghề nghiệp */
+.career-goals {
+  list-style: none;
+  padding: 0;
+}
+
+/* Định dạng cho mục tiêu chính */
+.career-goals > li {
+  margin-bottom: 20px;
+}
+
+/* Định dạng cho tiêu đề mục tiêu */
+.career-goals > li > strong {
+  display: block;
+  color: #6c5ce7;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+/* Danh sách mục tiêu con */
+.career-goals ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+/* Định dạng cho từng mục tiêu con */
+.career-goals ul li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+/* Skills Grid Layout */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Skill Category */
+.skill-category {
+  background: #f8f3ff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Skill Category - Bỏ khung màu tím nhạt */
+.skill-category {
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 20px;
+}
+
+.skill-category h3 {
+  color: #6c5ce7;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-category h3 i {
+  color: #a363d9;
+}
+
+/* Skills Container */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+/* Individual Skill Item */
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Nếu muốn bỏ luôn nền trắng của từng skill-item */
+.skill-item {
+  background: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(108, 92, 231, 0.1);
+}
+
+/* Skill Icon */
+.skill-item i {
+  font-size: 1.5em;
+  width: 24px;
+  text-align: center;
+}
+
+/* Skill Name */
+.skill-name {
+  font-weight: 500;
+  font-size: 0.95em;
+}
+
+/* Làm chữ label kỹ năng đậm và màu đen */
+.skill-item .skill-name {
+  color: #111 !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+}
+
+/* Đổi màu các icon kỹ năng cho dễ nhìn hơn */
+.skill-item .fa-html5 { color: #ff5722; }      /* Cam đậm */
+.skill-item .fa-css3-alt { color: #2196f3; }   /* Xanh dương */
+.skill-item .fa-js { color: #ffc107; }         /* Vàng */
+.skill-item .fa-php { color: #6e4fa3; }        /* Tím đậm */
+.skill-item .fa-react { color: #00e5ff; }      /* Xanh cyan */
+.skill-item .fa-python { color: #4caf50; }     /* Xanh lá */
+.skill-item .fa-node-js { color: #8bc34a; }    /* Xanh lá nhạt */
+
+/* Để chữ và icon phần kỹ năng về màu mặc định */
+.skill-item,
+.skill-item i,
+.skill-item .skill-name {
+  color: inherit !important;
+}
+
+/* Nếu có các dòng đổi màu icon kỹ năng, hãy xóa hoặc ghi đè lại */
+.skill-item .fa-html5,
+.skill-item .fa-css3-alt,
+.skill-item .fa-js,
+.skill-item .fa-php,
+.skill-item .fa-react,
+.skill-item .fa-python,
+.skill-item .fa-node-js {
+  color: inherit !important;
+}
+
+/* Dark mode: vẫn giữ màu mặc định cho phần kỹ năng */
+body.dark-mode .skill-item,
+body.dark-mode .skill-item i,
+body.dark-mode .skill-item .skill-name {
+  color: inherit !important;
+}
+body.dark-mode .skill-item .fa-html5,
+body.dark-mode .skill-item .fa-css3-alt,
+body.dark-mode .skill-item .fa-js,
+body.dark-mode .skill-item .fa-php,
+body.dark-mode .skill-item .fa-react,
+body.dark-mode .skill-item .fa-python,
+body.dark-mode .skill-item .fa-node-js {
+  color: inherit !important;
+}
+
+/* Dark Mode Styles */
+.dark-mode .skill-category {
+  background: #2d2d2d;
+}
+
+.dark-mode .skill-item {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skill-category:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .skill-item {
+    padding: 10px;
+  }
+  
+  .skill-item i {
+    font-size: 1.2em;
+  }
+  
+  .skill-name {
+    font-size: 0.9em;
+  }
+}
+
+/* Add smooth scrolling to the whole page */ 
+
+.interests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 24px;
+}
+
+.interests-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  color: #222; /* Đổi màu chữ thành đen */
+}
+
+/* Bỏ khung phần Ngôn ngữ */
+.skill-category:last-child .skill-item {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* Chữ và icon dễ nhìn hơn ở chế độ tối */
+body.dark-mode,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode a,
+body.dark-mode li,
+body.dark-mode td,
+body.dark-mode th,
+body.dark-mode div,
+body.dark-mode .skill-name,
+body.dark-mode .section h2,
+body.dark-mode .position,
+body.dark-mode .date,
+body.dark-mode .info-list li,
+body.dark-mode .award-item,
+body.dark-mode .software-item,
+body.dark-mode .interest-item,
+body.dark-mode .social-link {
+  color: #f1eaff !important; /* Màu chữ sáng hơn trên nền tối */
+}
+
+/* Tiêu đề section và icon trong tiêu đề ở dark mode */
+body.dark-mode .section h2,
+body.dark-mode .section h2 i {
+  color: #7c4dff !important;
+}
+
+/* Icon kỹ năng ở dark mode */
+body.dark-mode .skill-item .fa-html5 { color: #ff8a50; }
+body.dark-mode .skill-item .fa-css3-alt { color: #40c4ff; }
+body.dark-mode .skill-item .fa-js { color: #ffe082; }
+body.dark-mode .skill-item .fa-php { color: #b39ddb; }
+body.dark-mode .skill-item .fa-react { color: #18ffff; }
+body.dark-mode .skill-item .fa-python { color: #81c784; }
+body.dark-mode .skill-item .fa-node-js { color: #aed581; }
+
+/* Icon trong phần sở thích ở dark mode */
+body.dark-mode .interest-item i {
+  color: #7c4dff !important;
+}
+
+/* Icon trong info-list ở dark mode */
+body.dark-mode .info-list li i {
+  color: #7c4dff !important;
+}
+
+/* Icon trong nav-link ở dark mode */
+body.dark-mode .nav-link i {
+  color: #7c4dff !important;
+}
+
+/* Tất cả icon đều màu xanh dương nhạt, trừ icon trong social-link email, github, facebook */
+i,
+[class^="fa-"],
+[class*=" fa-"] {
+  color: #40c4ff !important;
+}
+
+/* Giữ màu mặc định cho icon facebook, github, email trong social-link */
+.social-link.facebook i,
+.social-link.github i,
+.social-link.email i {
+  color: inherit !important;
+}
+
+/* Dark mode: giữ nguyên logic trên */
+body.dark-mode i,
+body.dark-mode [class^="fa-"],
+body.dark-mode [class*=" fa-"] {
+  color: #40c4ff !important;
+}
+
+body.dark-mode .social-link.facebook i,
+body.dark-mode .social-link.github i,
+body.dark-mode .social-link.email i {
+  color: inherit !important;
+}
+
+/* Đổi icon của các sở thích "Chơi game", "Nghe nhạc", "Đi phượt" thành màu đen */
+.interest-item.game i,
+.interest-item.music i,
+.interest-item.travel i {
+  color: #111 !important;
+}
+
+/* Dark mode: vẫn để icon các sở thích này màu đen */
+body.dark-mode .interest-item.game i,
+body.dark-mode .interest-item.music i,
+body.dark-mode .interest-item.travel i {
+  color: #111 !important;
+}
+
